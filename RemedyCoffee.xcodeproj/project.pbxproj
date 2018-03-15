@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10B0B087205A10BD00400275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B086205A10BD00400275 /* AppDelegate.swift */; };
+		10B0B089205A10BD00400275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B088205A10BD00400275 /* ViewController.swift */; };
+		10B0B08C205A10BD00400275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08A205A10BD00400275 /* Main.storyboard */; };
+		10B0B08E205A10BD00400275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08D205A10BD00400275 /* Assets.xcassets */; };
+		10B0B091205A10BD00400275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08F205A10BD00400275 /* LaunchScreen.storyboard */; };
+		10B0B09C205A10BD00400275 /* RemedyCoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B09B205A10BD00400275 /* RemedyCoffeeTests.swift */; };
+		10B0B0A7205A10BE00400275 /* RemedyCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B0A6205A10BE00400275 /* RemedyCoffeeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10B0B098205A10BD00400275 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10B0B07B205A10BD00400275 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10B0B082205A10BD00400275;
+			remoteInfo = RemedyCoffee;
+		};
+		10B0B0A3205A10BD00400275 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10B0B07B205A10BD00400275 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10B0B082205A10BD00400275;
+			remoteInfo = RemedyCoffee;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10B0B083205A10BD00400275 /* RemedyCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemedyCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B0B086205A10BD00400275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10B0B088205A10BD00400275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10B0B08B205A10BD00400275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		10B0B08D205A10BD00400275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10B0B090205A10BD00400275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10B0B092205A10BD00400275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10B0B097205A10BD00400275 /* RemedyCoffeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemedyCoffeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B0B09B205A10BD00400275 /* RemedyCoffeeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyCoffeeTests.swift; sourceTree = "<group>"; };
+		10B0B09D205A10BD00400275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10B0B0A2205A10BD00400275 /* RemedyCoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemedyCoffeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B0B0A6205A10BE00400275 /* RemedyCoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemedyCoffeeUITests.swift; sourceTree = "<group>"; };
+		10B0B0A8205A10BE00400275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10B0B080205A10BD00400275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B0B094205A10BD00400275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B0B09F205A10BD00400275 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10B0B07A205A10BD00400275 = {
+			isa = PBXGroup;
+			children = (
+				10B0B085205A10BD00400275 /* RemedyCoffee */,
+				10B0B09A205A10BD00400275 /* RemedyCoffeeTests */,
+				10B0B0A5205A10BD00400275 /* RemedyCoffeeUITests */,
+				10B0B084205A10BD00400275 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10B0B084205A10BD00400275 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10B0B083205A10BD00400275 /* RemedyCoffee.app */,
+				10B0B097205A10BD00400275 /* RemedyCoffeeTests.xctest */,
+				10B0B0A2205A10BD00400275 /* RemedyCoffeeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10B0B085205A10BD00400275 /* RemedyCoffee */ = {
+			isa = PBXGroup;
+			children = (
+				10B0B086205A10BD00400275 /* AppDelegate.swift */,
+				10B0B088205A10BD00400275 /* ViewController.swift */,
+				10B0B08A205A10BD00400275 /* Main.storyboard */,
+				10B0B08D205A10BD00400275 /* Assets.xcassets */,
+				10B0B08F205A10BD00400275 /* LaunchScreen.storyboard */,
+				10B0B092205A10BD00400275 /* Info.plist */,
+			);
+			path = RemedyCoffee;
+			sourceTree = "<group>";
+		};
+		10B0B09A205A10BD00400275 /* RemedyCoffeeTests */ = {
+			isa = PBXGroup;
+			children = (
+				10B0B09B205A10BD00400275 /* RemedyCoffeeTests.swift */,
+				10B0B09D205A10BD00400275 /* Info.plist */,
+			);
+			path = RemedyCoffeeTests;
+			sourceTree = "<group>";
+		};
+		10B0B0A5205A10BD00400275 /* RemedyCoffeeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				10B0B0A6205A10BE00400275 /* RemedyCoffeeUITests.swift */,
+				10B0B0A8205A10BE00400275 /* Info.plist */,
+			);
+			path = RemedyCoffeeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10B0B082205A10BD00400275 /* RemedyCoffee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10B0B0AB205A10BE00400275 /* Build configuration list for PBXNativeTarget "RemedyCoffee" */;
+			buildPhases = (
+				10B0B07F205A10BD00400275 /* Sources */,
+				10B0B080205A10BD00400275 /* Frameworks */,
+				10B0B081205A10BD00400275 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemedyCoffee;
+			productName = RemedyCoffee;
+			productReference = 10B0B083205A10BD00400275 /* RemedyCoffee.app */;
+			productType = "com.apple.product-type.application";
+		};
+		10B0B096205A10BD00400275 /* RemedyCoffeeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10B0B0AE205A10BE00400275 /* Build configuration list for PBXNativeTarget "RemedyCoffeeTests" */;
+			buildPhases = (
+				10B0B093205A10BD00400275 /* Sources */,
+				10B0B094205A10BD00400275 /* Frameworks */,
+				10B0B095205A10BD00400275 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10B0B099205A10BD00400275 /* PBXTargetDependency */,
+			);
+			name = RemedyCoffeeTests;
+			productName = RemedyCoffeeTests;
+			productReference = 10B0B097205A10BD00400275 /* RemedyCoffeeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		10B0B0A1205A10BD00400275 /* RemedyCoffeeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10B0B0B1205A10BE00400275 /* Build configuration list for PBXNativeTarget "RemedyCoffeeUITests" */;
+			buildPhases = (
+				10B0B09E205A10BD00400275 /* Sources */,
+				10B0B09F205A10BD00400275 /* Frameworks */,
+				10B0B0A0205A10BD00400275 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10B0B0A4205A10BD00400275 /* PBXTargetDependency */,
+			);
+			name = RemedyCoffeeUITests;
+			productName = RemedyCoffeeUITests;
+			productReference = 10B0B0A2205A10BD00400275 /* RemedyCoffeeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10B0B07B205A10BD00400275 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Mark Karlsrud";
+				TargetAttributes = {
+					10B0B082205A10BD00400275 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					10B0B096205A10BD00400275 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 10B0B082205A10BD00400275;
+					};
+					10B0B0A1205A10BD00400275 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 10B0B082205A10BD00400275;
+					};
+				};
+			};
+			buildConfigurationList = 10B0B07E205A10BD00400275 /* Build configuration list for PBXProject "RemedyCoffee" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10B0B07A205A10BD00400275;
+			productRefGroup = 10B0B084205A10BD00400275 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10B0B082205A10BD00400275 /* RemedyCoffee */,
+				10B0B096205A10BD00400275 /* RemedyCoffeeTests */,
+				10B0B0A1205A10BD00400275 /* RemedyCoffeeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10B0B081205A10BD00400275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10B0B091205A10BD00400275 /* LaunchScreen.storyboard in Resources */,
+				10B0B08E205A10BD00400275 /* Assets.xcassets in Resources */,
+				10B0B08C205A10BD00400275 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B0B095205A10BD00400275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B0B0A0205A10BD00400275 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10B0B07F205A10BD00400275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10B0B089205A10BD00400275 /* ViewController.swift in Sources */,
+				10B0B087205A10BD00400275 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B0B093205A10BD00400275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10B0B09C205A10BD00400275 /* RemedyCoffeeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10B0B09E205A10BD00400275 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10B0B0A7205A10BE00400275 /* RemedyCoffeeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10B0B099205A10BD00400275 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10B0B082205A10BD00400275 /* RemedyCoffee */;
+			targetProxy = 10B0B098205A10BD00400275 /* PBXContainerItemProxy */;
+		};
+		10B0B0A4205A10BD00400275 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10B0B082205A10BD00400275 /* RemedyCoffee */;
+			targetProxy = 10B0B0A3205A10BD00400275 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		10B0B08A205A10BD00400275 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10B0B08B205A10BD00400275 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		10B0B08F205A10BD00400275 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10B0B090205A10BD00400275 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10B0B0A9205A10BE00400275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		10B0B0AA205A10BE00400275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10B0B0AC205A10BE00400275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
+				INFOPLIST_FILE = RemedyCoffee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios.RemedyCoffee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		10B0B0AD205A10BE00400275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
+				INFOPLIST_FILE = RemedyCoffee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios.RemedyCoffee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		10B0B0AF205A10BE00400275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
+				INFOPLIST_FILE = RemedyCoffeeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios.RemedyCoffeeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RemedyCoffee.app/RemedyCoffee";
+			};
+			name = Debug;
+		};
+		10B0B0B0205A10BE00400275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
+				INFOPLIST_FILE = RemedyCoffeeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios.RemedyCoffeeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RemedyCoffee.app/RemedyCoffee";
+			};
+			name = Release;
+		};
+		10B0B0B2205A10BE00400275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
+				INFOPLIST_FILE = RemedyCoffeeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios.RemedyCoffeeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RemedyCoffee;
+			};
+			name = Debug;
+		};
+		10B0B0B3205A10BE00400275 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
+				INFOPLIST_FILE = RemedyCoffeeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios.RemedyCoffeeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RemedyCoffee;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10B0B07E205A10BD00400275 /* Build configuration list for PBXProject "RemedyCoffee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B0B0A9205A10BE00400275 /* Debug */,
+				10B0B0AA205A10BE00400275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10B0B0AB205A10BE00400275 /* Build configuration list for PBXNativeTarget "RemedyCoffee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B0B0AC205A10BE00400275 /* Debug */,
+				10B0B0AD205A10BE00400275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10B0B0AE205A10BE00400275 /* Build configuration list for PBXNativeTarget "RemedyCoffeeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B0B0AF205A10BE00400275 /* Debug */,
+				10B0B0B0205A10BE00400275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10B0B0B1205A10BE00400275 /* Build configuration list for PBXNativeTarget "RemedyCoffeeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10B0B0B2205A10BE00400275 /* Debug */,
+				10B0B0B3205A10BE00400275 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10B0B07B205A10BD00400275 /* Project object */;
+}
