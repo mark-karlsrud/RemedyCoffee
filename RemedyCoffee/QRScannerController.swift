@@ -8,8 +8,10 @@
 
 import UIKit
 import AVFoundation
+import Firebase
 
 class QRScannerController: UIViewController {
+    var ref: DatabaseReference!
     
 //    @IBOutlet var messageLabel:UILabel!
 //    @IBOutlet var topbar: UIView!
@@ -35,6 +37,8 @@ class QRScannerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.ref = Database.database().reference()
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
         let input: AVCaptureDeviceInput
@@ -103,6 +107,7 @@ class QRScannerController: UIViewController {
         let alertPrompt = UIAlertController(title: "Coffee Coupon", message: "Mark coupon \(decodedStr) as redeemed? ", preferredStyle: .actionSheet)
         let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             print("Redeemed coupon \(decodedStr)")
+            self.redeemCoupon(purchaseCode: decodedStr)
             self.captureSession.stopRunning()
             self.navigationController?.popViewController(animated: true)
         })
@@ -115,6 +120,20 @@ class QRScannerController: UIViewController {
         present(alertPrompt, animated: true, completion: nil)
     }
     
+    func redeemCoupon(purchaseCode: String) {
+        //fetch first
+        ref.child("purchases").child(purchaseCode).observeSingleEvent(of: .value, with: { snapshot in
+            // Get user value
+            let purchase = Purchase(snapshot: snapshot)
+            
+            let childUpdates = ["/purchases/\(purchaseCode)/redeemed/": true,
+                                "/userPurchases/\(purchase?.from.id)/\(purchaseCode)/redeemed/" : true,
+                                "/userCredits/\(purchase?.to.id)/\(purchaseCode)/redeemed/" : true]
+            self.ref.updateChildValues(childUpdates)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
 }
 
 extension QRScannerController: AVCaptureMetadataOutputObjectsDelegate {

@@ -1,0 +1,119 @@
+{
+    "menu" : {
+        "coffee_small" : {
+            "description" : "coffee",
+            "size" : "small",
+            "price" : 1.99
+        },
+        "coffee_large" : {
+            "description" : "coffee",
+            "size" : "large",
+            "price" : 3.99
+        }
+    },
+    "userPurchases" : {
+        "user1" : {
+            "dfgsa-adfgsvf-sbdfgbsd" : {
+                "to" : {
+                    "id" : "user2",
+                    "user" : {
+                        "name" : "Bob",
+                        "phone" : 4803758592
+                    }
+                },
+                "from" : {
+                    "id" : "user1",
+                    "user" : {
+                        "name" : "Mark",
+                        "phone" : 4803758592
+                    }
+                },
+                "fromId" : "user1",
+                "item" : {
+                    "id" : "coffee_large",
+                    "item" : {
+                        "description" : "coffee",
+                        "size" : "large",
+                        "value" : 3.99
+                    }
+                },
+                "code" : "dfgsa-adfgsvf-sbdfgbsd",
+                "redeemed" : false,
+                "date" : "2018/Apr/01 10:10:10"
+            }
+        }
+    },
+    "userCredits" : {
+        "user2" : {
+            "dfgsa-adfgsvf-sbdfgbsd" : {
+                "to" : {
+                    "id" : "user2",
+                    "user" : {
+                        "name" : "Bob",
+                        "phone" : 4803758592
+                    }
+                },
+                "from" : {
+                    "id" : "user1",
+                    "user" : {
+                        "name" : "Mark",
+                        "phone" : 4803758592
+                    }
+                },
+                "fromId" : "user1",
+                "item" : {
+                    "id" : "coffee_large",
+                    "item" : {
+                        "description" : "coffee",
+                        "size" : "large",
+                        "value" : 3.99
+                    }
+                },
+                "code" : "dfgsa-adfgsvf-sbdfgbsd",
+                "redeemed" : false,
+                "date" : "2018/Apr/01 10:10:10"
+            }
+        }
+    },
+    "purchases" : {
+        "dfgsa-adfgsvf-sbdfgbsd" : {
+            "to" : {
+                "id" : "user2",
+                "user" : {
+                    "name" : "Bob",
+                    "phone" : 4803758592
+                }
+            },
+            "from" : {
+                "id" : "user1",
+                "user" : {
+                    "name" : "Mark",
+                    "phone" : 4803758592
+                }
+            },
+            "fromId" : "user1",
+            "item" : {
+                "id" : "coffee_large",
+                "item" : {
+                    "description" : "coffee",
+                    "size" : "large",
+                    "value" : 3.99
+                }
+            },
+            "code" : "dfgsa-adfgsvf-sbdfgbsd",
+            "redeemed" : false,
+            "date" : "2018/Apr/01 10:10:10"
+        }
+    },
+    "users" : {
+        "user1" : {
+            "name" : "Mark",
+            "phone" : 4803758592
+        },
+        "user2" : {
+            "name" : "Bob",
+            "phone" : 4803758592
+        }
+    }
+}
+

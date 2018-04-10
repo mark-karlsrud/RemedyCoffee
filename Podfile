@@ -8,6 +8,9 @@ target 'RemedyCoffee' do
   # Pods for RemedyCoffee
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'FBSDKLoginKit'
+  pod 'Firebase/Database'
+  pod 'FirebaseUI/Database'
 
   target 'RemedyCoffeeTests' do
     inherit! :search_paths
