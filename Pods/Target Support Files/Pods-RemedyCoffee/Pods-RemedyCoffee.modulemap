@@ -1,6 +1,0 @@
-framework module Pods_RemedyCoffee {
-  umbrella header "Pods-RemedyCoffee-umbrella.h"
-
-  export *
-  module * { export * }
-}
