@@ -14,6 +14,10 @@ struct Item {
     var size: String?
     var value: Double!
     
+    init?(snapshot: DataSnapshot) {
+        self.init(data: snapshot.value!)
+    }
+    
     init?(data: Any) {
         guard let dict = data as? [String:Any] else { return nil }
         guard let description = dict["description"] as? String else { return nil }

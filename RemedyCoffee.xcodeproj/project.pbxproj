@@ -10,6 +10,10 @@
 		10420CF12069E7E1009D14E7 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 10420CF02069E7E1009D14E7 /* sampleData.json */; };
 		107D887A207C41D0007239AB /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D8879207C41D0007239AB /* UserWrapper.swift */; };
 		107D887C207C4EBF007239AB /* ItemWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D887B207C4EBF007239AB /* ItemWrapper.swift */; };
+		107D887F20803991007239AB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D887E20803991007239AB /* UserViewController.swift */; };
+		107D8881208044DE007239AB /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D8880208044DE007239AB /* ItemViewController.swift */; };
+		107D88842080453D007239AB /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D88832080453D007239AB /* MenuTableViewController.swift */; };
+		107D8886208045F8007239AB /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D8885208045F8007239AB /* ItemTableViewCell.swift */; };
 		10B0B087205A10BD00400275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B086205A10BD00400275 /* AppDelegate.swift */; };
 		10B0B089205A10BD00400275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B088205A10BD00400275 /* ViewController.swift */; };
 		10B0B08C205A10BD00400275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08A205A10BD00400275 /* Main.storyboard */; };
@@ -20,7 +24,7 @@
 		10B0B0B5205A173600400275 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B0B4205A173600400275 /* QRScannerController.swift */; };
 		10B0B0B7205C6C8B00400275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B0B6205C6C8B00400275 /* GoogleService-Info.plist */; };
 		10BED2AB206FF8AE00E0C0E6 /* FacebookLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */; };
-		10BED2AD206FFF5900E0C0E6 /* ShowUsersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AC206FFF5900E0C0E6 /* ShowUsersController.swift */; };
+		10BED2AD206FFF5900E0C0E6 /* UsersTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AC206FFF5900E0C0E6 /* UsersTableController.swift */; };
 		10BED2AF2070023300E0C0E6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AE2070023300E0C0E6 /* UserTableViewCell.swift */; };
 		10BED2B12070094700E0C0E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2B02070094700E0C0E6 /* User.swift */; };
 		10BED2B4207192B800E0C0E6 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2B3207192B800E0C0E6 /* Purchase.swift */; };
@@ -55,6 +59,10 @@
 		10420CF02069E7E1009D14E7 /* sampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sampleData.json; sourceTree = "<group>"; };
 		107D8879207C41D0007239AB /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
 		107D887B207C4EBF007239AB /* ItemWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWrapper.swift; sourceTree = "<group>"; };
+		107D887E20803991007239AB /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		107D8880208044DE007239AB /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		107D88832080453D007239AB /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		107D8885208045F8007239AB /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		10B0B083205A10BD00400275 /* RemedyCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemedyCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B0B086205A10BD00400275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10B0B088205A10BD00400275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +79,7 @@
 		10B0B0B4205A173600400275 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		10B0B0B6205C6C8B00400275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginManager.swift; sourceTree = "<group>"; };
-		10BED2AC206FFF5900E0C0E6 /* ShowUsersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersController.swift; sourceTree = "<group>"; };
+		10BED2AC206FFF5900E0C0E6 /* UsersTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableController.swift; sourceTree = "<group>"; };
 		10BED2AE2070023300E0C0E6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		10BED2B02070094700E0C0E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		10BED2B3207192B800E0C0E6 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
@@ -119,6 +127,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		107D887D20803897007239AB /* UsersViews */ = {
+			isa = PBXGroup;
+			children = (
+				10BED2AC206FFF5900E0C0E6 /* UsersTableController.swift */,
+				10BED2AE2070023300E0C0E6 /* UserTableViewCell.swift */,
+				107D887E20803991007239AB /* UserViewController.swift */,
+			);
+			path = UsersViews;
+			sourceTree = "<group>";
+		};
+		107D888220804526007239AB /* MenuViews */ = {
+			isa = PBXGroup;
+			children = (
+				107D8880208044DE007239AB /* ItemViewController.swift */,
+				107D88832080453D007239AB /* MenuTableViewController.swift */,
+				107D8885208045F8007239AB /* ItemTableViewCell.swift */,
+			);
+			path = MenuViews;
+			sourceTree = "<group>";
+		};
 		10B0B07A205A10BD00400275 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +172,8 @@
 		10B0B085205A10BD00400275 /* RemedyCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				107D888220804526007239AB /* MenuViews */,
+				107D887D20803897007239AB /* UsersViews */,
 				10BED2BD2071A90F00E0C0E6 /* PurchasesViews */,
 				10BED2B2207192A000E0C0E6 /* Model */,
 				10B0B0B6205C6C8B00400275 /* GoogleService-Info.plist */,
@@ -156,8 +186,6 @@
 				10B0B092205A10BD00400275 /* Info.plist */,
 				10B0B0B4205A173600400275 /* QRScannerController.swift */,
 				10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */,
-				10BED2AC206FFF5900E0C0E6 /* ShowUsersController.swift */,
-				10BED2AE2070023300E0C0E6 /* UserTableViewCell.swift */,
 				10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */,
 			);
 			path = RemedyCoffee;
@@ -548,8 +576,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				10BED2B6207192FA00E0C0E6 /* Item.swift in Sources */,
+				107D887F20803991007239AB /* UserViewController.swift in Sources */,
 				10B0B089205A10BD00400275 /* ViewController.swift in Sources */,
-				10BED2AD206FFF5900E0C0E6 /* ShowUsersController.swift in Sources */,
+				10BED2AD206FFF5900E0C0E6 /* UsersTableController.swift in Sources */,
+				107D8886208045F8007239AB /* ItemTableViewCell.swift in Sources */,
 				10BED2BF2071A92800E0C0E6 /* PurchaseViewController.swift in Sources */,
 				10BED2B4207192B800E0C0E6 /* Purchase.swift in Sources */,
 				10BED2AF2070023300E0C0E6 /* UserTableViewCell.swift in Sources */,
@@ -560,6 +590,8 @@
 				107D887A207C41D0007239AB /* UserWrapper.swift in Sources */,
 				107D887C207C4EBF007239AB /* ItemWrapper.swift in Sources */,
 				10B0B087205A10BD00400275 /* AppDelegate.swift in Sources */,
+				107D88842080453D007239AB /* MenuTableViewController.swift in Sources */,
+				107D8881208044DE007239AB /* ItemViewController.swift in Sources */,
 				10BED2AB206FF8AE00E0C0E6 /* FacebookLoginManager.swift in Sources */,
 				10B0B0B5205A173600400275 /* QRScannerController.swift in Sources */,
 			);

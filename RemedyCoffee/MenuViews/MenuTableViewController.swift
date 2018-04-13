@@ -1,8 +1,8 @@
 //
-//  ShowUsersController.swift
+//  MenuTableViewController.swift
 //  RemedyCoffee
 //
-//  Created by Mark Karlsrud on 3/31/18.
+//  Created by Mark Karlsrud on 4/12/18.
 //  Copyright © 2018 Mark Karlsrud. All rights reserved.
 //
 
@@ -10,15 +10,15 @@ import UIKit
 import Firebase
 import FirebaseDatabaseUI
 
-class ShowUsersController: UITableViewController {
+class MenuTableController: UITableViewController {
     var ref: DatabaseReference!
-    var users = [User]()
+    var items = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.ref = Database.database().reference()
-        loadUsers()
+        loadItems()
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,39 +33,44 @@ class ShowUsersController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return items.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "UserTableViewCell"
+        let cellIdentifier = "ItemTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? UserTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of UserTableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ItemTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
         // Fetches the appropriate meal for the data source layout.
-        let user = users[indexPath.row]
+        let item = items[indexPath.row]
         
-        cell.nameLabel.text = user.name
-//        cell.photoImageView.image = user.photo
-//        cell.ratingControl.rating = user.rating
+        cell.descriptionLabel.text = item.description
         
         return cell
     }
     
     //MARK: Private Methods
     
-    private func loadUsers() {
-        self.ref.child("users").observeSingleEvent(of: .value, with: { snapshot in
+    private func loadItems() {
+        self.ref.child("menu").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
-                let userData = child as! DataSnapshot
-                let user = User(data: userData.value!)!
-                self.users += [user]
+                let itemData = child as! DataSnapshot
+                let item = Item(snapshot: itemData)!
+                self.items += [item]
             }
             self.tableView.reloadData()
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ItemViewController {
+            let vc = segue.destination as? ItemViewController
+            vc?.item = items[(self.tableView.indexPathForSelectedRow?.row)!]
+        }
     }
 }

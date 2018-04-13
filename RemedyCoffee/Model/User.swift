@@ -20,12 +20,12 @@ struct User {
         guard let name = dict["name"] as? String else { return nil }
 //        guard let photoUrl = dict["photoUrl"] as? String else { return nil }
 //        guard let fbId = dict["fbId"] as? String else { return nil }
-        guard let phone = dict["phone"] as? Int else { return nil }
+//        guard let phone = dict["phone"] as? Int else { return nil }
 
         self.name = name
 //        self.photoUrl = photoUrl
 //        self.fbId = fbId
-        self.phone = phone
+//        self.phone = phone
     }
     
     init?(data dictionary: Any) {
@@ -33,11 +33,11 @@ struct User {
         guard let name = dict["name"] as? String else { return nil }
 //        guard let photoUrl = dict["photoUrl"] as? String else { return nil }
 //        guard let fbId = dict["fbId"] as? String else { return nil }
-        guard let phone = dict["phone"] as? Int else { return nil }
+//        guard let phone = dict["phone"] as? Int else { return nil }
         
         self.name = name
 //        self.photoUrl = photoUrl
 //        self.fbId = fbId
-        self.phone = phone
+//        self.phone = phone
     }
 }
