@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HBV-KV-LfQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HBV-KV-LfQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-308" y="82"/>
         </scene>
-        <!--View Controller-->
+        <!--Remedy Coffee-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,13 +71,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zuw-LT-tag"/>
+                    <navigationItem key="navigationItem" title="Remedy Coffee" id="KlI-H5-pKn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="527" y="81"/>
         </scene>
-        <!--Menu Table Controller-->
+        <!--Menu-->
         <scene sceneID="V7j-xS-kzD">
             <objects>
                 <tableViewController id="g2A-O8-9ml" customClass="MenuTableController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemTableViewCell" id="bfw-9g-q6L" customClass="ItemTableViewCell" customModule="RemedyCoffee" customModuleProvider="target">
+                            <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemTableViewCell" id="bfw-9g-q6L" customClass="ItemTableViewCell" customModule="RemedyCoffee" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfw-9g-q6L" id="vMw-vo-veb">
@@ -94,7 +94,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8M0-fM-ffn">
-                                            <rect key="frame" x="166" y="12" width="42" height="21"/>
+                                            <rect key="frame" x="16" y="12" width="343" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -113,12 +113,13 @@
                             <outlet property="delegate" destination="g2A-O8-9ml" id="6rH-07-m7a"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Menu" id="ews-9p-eVd"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTP-N2-ckP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436" y="-609"/>
+            <point key="canvasLocation" x="1436" y="-609.44527736131943"/>
         </scene>
-        <!--Item View Controller-->
+        <!--Menu Item-->
         <scene sceneID="zZa-ZL-fDV">
             <objects>
                 <viewController id="FzY-Dp-aq1" customClass="ItemViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,10 +148,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8p-WA-KkQ">
+                                <rect key="frame" x="157" y="318" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Buy Item"/>
+                                <connections>
+                                    <action selector="buyClick:" destination="FzY-Dp-aq1" eventType="touchUpInside" id="lQp-hQ-Fq1"/>
+                                    <segue destination="tbJ-VN-Qzs" kind="show" id="WzB-SB-gz8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="SuS-JW-cBG"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Menu Item" id="FUO-n9-T5Y"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="K4O-yl-8SU" id="AC1-MC-opO"/>
                         <outlet property="sizeLabel" destination="pYn-m6-TXA" id="Sbx-Fe-7qe"/>
@@ -161,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="2148" y="-609"/>
         </scene>
-        <!--Scanner Controller-->
+        <!--QR Code Scanner-->
         <scene sceneID="jcX-RF-vkg">
             <objects>
                 <viewController id="X8S-6R-ujp" customClass="QRScannerController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,12 +182,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="kN2-uH-r0X"/>
                     </view>
+                    <navigationItem key="navigationItem" title="QR Code Scanner" id="fPo-Q3-3Q6">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="4b1-FE-fAm"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGD-5S-Udo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1396" y="81"/>
         </scene>
-        <!--Users Table Controller-->
+        <!--Users-->
         <scene sceneID="Whv-1M-KFR">
             <objects>
                 <tableViewController id="osk-ue-nAe" customClass="UsersTableController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,12 +226,15 @@
                             <outlet property="delegate" destination="osk-ue-nAe" id="PZp-7E-G63"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Users" id="7zc-t5-wIH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="HuY-Wa-0f9"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQm-Gz-eFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2148" y="81"/>
         </scene>
-        <!--Purchases Table Controller-->
+        <!--Purchases-->
         <scene sceneID="taQ-gU-tHJ">
             <objects>
                 <tableViewController id="ITf-tM-IzR" customClass="PurchasesTableController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -274,12 +291,15 @@
                             <outlet property="delegate" destination="ITf-tM-IzR" id="I0G-Is-SWI"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Purchases" id="PsB-Q2-bcw">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="s3A-fw-eZo"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-gO-1oU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3553" y="81"/>
         </scene>
-        <!--Purchase View Controller-->
+        <!--Purchase-->
         <scene sceneID="37H-mc-xnO">
             <objects>
                 <viewController id="tbJ-VN-Qzs" customClass="PurchaseViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -361,13 +381,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1a-BJ-dqB">
                                         <rect key="frame" x="0.0" y="162" width="335" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-Wf-n4C">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-Wf-n4C">
                                                 <rect key="frame" x="0.0" y="0.0" width="49.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-vh-6p2">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-vh-6p2">
                                                 <rect key="frame" x="49.5" y="0.0" width="285.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -386,9 +406,18 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="m8e-rd-T3n"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6u-Zl-jpg">
+                                <rect key="frame" x="133" y="622" width="109" height="30"/>
+                                <state key="normal" title="Send to a friend"/>
+                                <connections>
+                                    <action selector="didClickSendToFriend:" destination="tbJ-VN-Qzs" eventType="touchUpInside" id="Xwd-PK-pXf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="p6u-Zl-jpg" firstAttribute="centerX" secondItem="rdC-jA-Kvo" secondAttribute="centerX" id="0a5-j6-t3d"/>
+                            <constraint firstItem="p6u-Zl-jpg" firstAttribute="top" secondItem="rwu-7K-z2y" secondAttribute="bottom" constant="7.5" id="1wW-C5-2cw"/>
                             <constraint firstItem="xgV-8e-ChO" firstAttribute="centerX" secondItem="rdC-jA-Kvo" secondAttribute="centerX" id="9KP-0m-kHQ"/>
                             <constraint firstItem="rdC-jA-Kvo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xgV-8e-ChO" secondAttribute="trailing" constant="20" id="Npa-vE-s6q"/>
                             <constraint firstItem="xgV-8e-ChO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rdC-jA-Kvo" secondAttribute="leading" constant="20" id="bNX-T5-sGC"/>
@@ -396,6 +425,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rdC-jA-Kvo"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Purchase" id="SNl-QN-njv"/>
                     <connections>
                         <outlet property="amountLabel" destination="B1d-sg-DOb" id="Esf-Nf-bUJ"/>
                         <outlet property="dateLabel" destination="RlU-tm-5Ln" id="fFx-eS-Xqv"/>
@@ -409,7 +439,7 @@
             </objects>
             <point key="canvasLocation" x="4297" y="87"/>
         </scene>
-        <!--User View Controller-->
+        <!--User-->
         <scene sceneID="bgI-zx-BFs">
             <objects>
                 <viewController id="acO-vf-6o2" customClass="UserViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
@@ -439,6 +469,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="qgT-fN-a7O"/>
                     </view>
+                    <navigationItem key="navigationItem" title="User" id="jZa-PY-hdv"/>
                     <connections>
                         <outlet property="imageView" destination="Yei-7o-IF3" id="rl9-z0-SP2"/>
                         <outlet property="nameLabel" destination="3mv-ii-69g" id="31N-77-Rr2"/>
@@ -450,4 +481,7 @@
             <point key="canvasLocation" x="2824.8000000000002" y="80.50974512743629"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WzB-SB-gz8"/>
+    </inferredMetricsTieBreakers>
 </document>

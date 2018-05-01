@@ -7,28 +7,9 @@
 //
 
 import Foundation
-import Firebase
 
-struct ItemWrapper {
+struct ItemWrapper: Codable {
     var id: String!
     var item: Item
-    
-    init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String: Any] else { return nil }
-        guard let id = dict["id"] as? String else { return nil }
-        guard let item = Item(data: dict["item"]!) else { return nil }
-        
-        self.id = id
-        self.item = item
-    }
-    
-    init?(data dictionary: Any) {
-        guard let dict = dictionary as? [String: Any] else { return nil }
-        guard let id = dict["id"] as? String else { return nil }
-        guard let item = Item(data: dict["item"]!) else { return nil }
-        
-        self.id = id
-        self.item = item
-    }
 }
 

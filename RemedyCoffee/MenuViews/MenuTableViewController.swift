@@ -12,11 +12,12 @@ import FirebaseDatabaseUI
 
 class MenuTableController: UITableViewController {
     var ref: DatabaseReference!
-    var items = [Item]()
+    var items = [ItemWrapper]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackground(atLocation: "coffee_on_table.jpg")
         self.ref = Database.database().reference()
         loadItems()
     }
@@ -49,7 +50,7 @@ class MenuTableController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let item = items[indexPath.row]
         
-        cell.descriptionLabel.text = item.description
+        cell.descriptionLabel.text = item.item.description
         
         return cell
     }
@@ -59,9 +60,15 @@ class MenuTableController: UITableViewController {
     private func loadItems() {
         self.ref.child("menu").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
-                let itemData = child as! DataSnapshot
-                let item = Item(snapshot: itemData)!
-                self.items += [item]
+                guard let childSnap = child as? DataSnapshot else { return }
+                do {
+                    let item = try childSnap.decode(Item.self)
+                    let itemWrapper = ItemWrapper(id: childSnap.key, item: item)
+                    self.items += [itemWrapper]
+                    print(item)
+                } catch let error {
+                    print(error)
+                }
             }
             self.tableView.reloadData()
         })

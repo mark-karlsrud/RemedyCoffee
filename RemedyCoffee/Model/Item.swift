@@ -7,25 +7,9 @@
 //
 
 import Foundation
-import Firebase
 
-struct Item {
+struct Item: Codable {
     var description: String?
     var size: String?
     var value: Double!
-    
-    init?(snapshot: DataSnapshot) {
-        self.init(data: snapshot.value!)
-    }
-    
-    init?(data: Any) {
-        guard let dict = data as? [String:Any] else { return nil }
-        guard let description = dict["description"] as? String else { return nil }
-        guard let size = dict["size"] as? String else { return nil }
-        guard let value = dict["value"] as? Double else { return nil }
-        
-        self.description = description
-        self.size = size
-        self.value = value
-    }
 }

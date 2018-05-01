@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
 
 let format = "yyyy/MMM/dd HH:mm:ss"
 
@@ -28,7 +30,7 @@ extension String {
     func toDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
         return dateFormatter.date(from: self)!
     }
 }
@@ -38,3 +40,33 @@ extension Double {
         return String(format: "$%.02f", self)
     }
 }
+
+extension UITableViewController {
+    func setBackground(atLocation fileLocation: String) {
+        let background = UIImage(named: fileLocation)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        imageView.alpha = 0.5
+        self.tableView.backgroundView = imageView
+    }
+}
+
+extension DataSnapshot {
+    func decode<T>(_ type: T.Type) throws -> T where T : Decodable {
+        let childValue = self.value as! [String: Any]
+        let jsonData = try JSONSerialization.data(withJSONObject: childValue, options: [])
+        let item = try JSONDecoder().decode(type.self, from: jsonData)
+        return item;
+    }
+}
+
+extension Data {
+    func toDict() throws -> NSDictionary {
+        return try JSONSerialization.jsonObject(with: self, options: []) as! NSDictionary
+    }
+}
+

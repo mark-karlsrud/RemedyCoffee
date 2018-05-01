@@ -123,13 +123,16 @@ class QRScannerController: UIViewController {
     func redeemCoupon(purchaseCode: String) {
         //fetch first
         ref.child("purchases").child(purchaseCode).observeSingleEvent(of: .value, with: { snapshot in
-            // Get user value
-            let purchase = Purchase(snapshot: snapshot)
-            
-            let childUpdates = ["/purchases/\(purchaseCode)/redeemed/": true,
-                                "/userPurchases/\(purchase?.from.id)/\(purchaseCode)/redeemed/" : true,
-                                "/userCredits/\(purchase?.to.id)/\(purchaseCode)/redeemed/" : true]
-            self.ref.updateChildValues(childUpdates)
+            // Get users from purchase so we can update all entries
+            do {
+                let purchase = try snapshot.decode(Purchase.self)
+                let childUpdates = ["/purchases/\(purchaseCode)/redeemed/": true,
+                                    "/userPurchases/\(purchase.from.id!)/\(purchaseCode)/redeemed/" : true,
+                                    "/userCredits/\(purchase.to.id!)/\(purchaseCode)/redeemed/" : true]
+                self.ref.updateChildValues(childUpdates)
+            } catch let error {
+                print(error)
+            }
         }) { (error) in
             print(error.localizedDescription)
         }

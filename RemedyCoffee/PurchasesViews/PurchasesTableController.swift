@@ -68,9 +68,14 @@ class PurchasesTableController: UITableViewController {
     private func loadPurchases() {
         self.ref.child("purchases").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
-                let purchaseData = child as! DataSnapshot
-                let purchase = Purchase(snapshot: purchaseData)!
-                self.purchases += [purchase]
+                guard let childSnap = child as? DataSnapshot else { return }
+                do {
+                    let purchase = try childSnap.decode(Purchase.self)
+                    self.purchases += [purchase]
+                    print(purchase)
+                } catch let error {
+                    print(error)
+                }
             }
             self.tableView.reloadData()
         })

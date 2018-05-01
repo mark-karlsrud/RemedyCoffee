@@ -50,8 +50,6 @@ class UsersTableController: UITableViewController {
         let user = users[indexPath.row]
         
         cell.nameLabel.text = user.name
-//        cell.photoImageView.image = user.photo
-//        cell.ratingControl.rating = user.rating
         
         return cell
     }
@@ -61,9 +59,14 @@ class UsersTableController: UITableViewController {
     private func loadUsers() {
         self.ref.child("users").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
-                let userData = child as! DataSnapshot
-                let user = User(snapshot: userData)!
-                self.users += [user]
+                guard let childSnap = child as? DataSnapshot else { return }
+                do {
+                    let user = try childSnap.decode(User.self)
+                    self.users += [user]
+                    print(user)
+                } catch let error {
+                    print(error)
+                }
             }
             self.tableView.reloadData()
         })

@@ -33,6 +33,7 @@
 		10BED2BA2071969500E0C0E6 /* PurchasesTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2B92071969500E0C0E6 /* PurchasesTableController.swift */; };
 		10BED2BC2071A3EE00E0C0E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */; };
 		10BED2BF2071A92800E0C0E6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2BE2071A92800E0C0E6 /* PurchaseViewController.swift */; };
+		10C70839209546C200EC6EE7 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C70838209546C200EC6EE7 /* MessageComposer.swift */; };
 		851DBD9FAFA81C603E384D1E /* Pods_RemedyCoffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD460DAE4DD1B2A49C187 /* Pods_RemedyCoffee.framework */; };
 		9A4D5C3D883A88ACDD8DD9A2 /* Pods_RemedyCoffeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6AB69481204D0ACC2E226D /* Pods_RemedyCoffeeTests.framework */; };
 		BBF60C0BB7DA4EBBE05A0EB2 /* Pods_RemedyCoffeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CFE23934101F063A081BF /* Pods_RemedyCoffeeUITests.framework */; };
@@ -88,6 +89,7 @@
 		10BED2B92071969500E0C0E6 /* PurchasesTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesTableController.swift; sourceTree = "<group>"; };
 		10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		10BED2BE2071A92800E0C0E6 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		10C70838209546C200EC6EE7 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		1699C8A5F31EF991087619FD /* Pods-RemedyCoffeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemedyCoffeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemedyCoffeeTests/Pods-RemedyCoffeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CABC12303E3A42E85DC9067 /* Pods-RemedyCoffeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemedyCoffeeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemedyCoffeeUITests/Pods-RemedyCoffeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		398BD460DAE4DD1B2A49C187 /* Pods_RemedyCoffee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemedyCoffee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 				10B0B0B4205A173600400275 /* QRScannerController.swift */,
 				10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */,
 				10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */,
+				10C70838209546C200EC6EE7 /* MessageComposer.swift */,
 			);
 			path = RemedyCoffee;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				10BED2B4207192B800E0C0E6 /* Purchase.swift in Sources */,
 				10BED2AF2070023300E0C0E6 /* UserTableViewCell.swift in Sources */,
 				10BED2B82071965A00E0C0E6 /* PurchasesTableViewCell.swift in Sources */,
+				10C70839209546C200EC6EE7 /* MessageComposer.swift in Sources */,
 				10BED2BC2071A3EE00E0C0E6 /* Extensions.swift in Sources */,
 				10BED2BA2071969500E0C0E6 /* PurchasesTableController.swift in Sources */,
 				10BED2B12070094700E0C0E6 /* User.swift in Sources */,
