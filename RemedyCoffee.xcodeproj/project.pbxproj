@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102020ED2099654900B087EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102020EC2099654900B087EA /* LoginViewController.swift */; };
 		10420CF12069E7E1009D14E7 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 10420CF02069E7E1009D14E7 /* sampleData.json */; };
 		107D887A207C41D0007239AB /* UserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D8879207C41D0007239AB /* UserWrapper.swift */; };
 		107D887C207C4EBF007239AB /* ItemWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D887B207C4EBF007239AB /* ItemWrapper.swift */; };
@@ -15,7 +16,6 @@
 		107D88842080453D007239AB /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D88832080453D007239AB /* MenuTableViewController.swift */; };
 		107D8886208045F8007239AB /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107D8885208045F8007239AB /* ItemTableViewCell.swift */; };
 		10B0B087205A10BD00400275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B086205A10BD00400275 /* AppDelegate.swift */; };
-		10B0B089205A10BD00400275 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B088205A10BD00400275 /* ViewController.swift */; };
 		10B0B08C205A10BD00400275 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08A205A10BD00400275 /* Main.storyboard */; };
 		10B0B08E205A10BD00400275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08D205A10BD00400275 /* Assets.xcassets */; };
 		10B0B091205A10BD00400275 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B08F205A10BD00400275 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,6 @@
 		10B0B0A7205A10BE00400275 /* RemedyCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B0A6205A10BE00400275 /* RemedyCoffeeUITests.swift */; };
 		10B0B0B5205A173600400275 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B0B0B4205A173600400275 /* QRScannerController.swift */; };
 		10B0B0B7205C6C8B00400275 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10B0B0B6205C6C8B00400275 /* GoogleService-Info.plist */; };
-		10BED2AB206FF8AE00E0C0E6 /* FacebookLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */; };
 		10BED2AD206FFF5900E0C0E6 /* UsersTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AC206FFF5900E0C0E6 /* UsersTableController.swift */; };
 		10BED2AF2070023300E0C0E6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2AE2070023300E0C0E6 /* UserTableViewCell.swift */; };
 		10BED2B12070094700E0C0E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2B02070094700E0C0E6 /* User.swift */; };
@@ -34,6 +33,7 @@
 		10BED2BC2071A3EE00E0C0E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */; };
 		10BED2BF2071A92800E0C0E6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BED2BE2071A92800E0C0E6 /* PurchaseViewController.swift */; };
 		10C70839209546C200EC6EE7 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C70838209546C200EC6EE7 /* MessageComposer.swift */; };
+		10CE4E7D20A13A7100F34656 /* PhoneContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CE4E7C20A13A7100F34656 /* PhoneContacts.swift */; };
 		851DBD9FAFA81C603E384D1E /* Pods_RemedyCoffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD460DAE4DD1B2A49C187 /* Pods_RemedyCoffee.framework */; };
 		9A4D5C3D883A88ACDD8DD9A2 /* Pods_RemedyCoffeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6AB69481204D0ACC2E226D /* Pods_RemedyCoffeeTests.framework */; };
 		BBF60C0BB7DA4EBBE05A0EB2 /* Pods_RemedyCoffeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3CFE23934101F063A081BF /* Pods_RemedyCoffeeUITests.framework */; };
@@ -57,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		102020EA2097F7AE00B087EA /* RemedyCoffee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RemedyCoffee.entitlements; sourceTree = "<group>"; };
+		102020EC2099654900B087EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10420CF02069E7E1009D14E7 /* sampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sampleData.json; sourceTree = "<group>"; };
 		107D8879207C41D0007239AB /* UserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWrapper.swift; sourceTree = "<group>"; };
 		107D887B207C4EBF007239AB /* ItemWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemWrapper.swift; sourceTree = "<group>"; };
@@ -66,7 +68,6 @@
 		107D8885208045F8007239AB /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		10B0B083205A10BD00400275 /* RemedyCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemedyCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10B0B086205A10BD00400275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10B0B088205A10BD00400275 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10B0B08B205A10BD00400275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10B0B08D205A10BD00400275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10B0B090205A10BD00400275 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		10B0B0A8205A10BE00400275 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10B0B0B4205A173600400275 /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		10B0B0B6205C6C8B00400275 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginManager.swift; sourceTree = "<group>"; };
 		10BED2AC206FFF5900E0C0E6 /* UsersTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableController.swift; sourceTree = "<group>"; };
 		10BED2AE2070023300E0C0E6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		10BED2B02070094700E0C0E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -90,6 +90,7 @@
 		10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		10BED2BE2071A92800E0C0E6 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
 		10C70838209546C200EC6EE7 /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		10CE4E7C20A13A7100F34656 /* PhoneContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContacts.swift; sourceTree = "<group>"; };
 		1699C8A5F31EF991087619FD /* Pods-RemedyCoffeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemedyCoffeeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RemedyCoffeeTests/Pods-RemedyCoffeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CABC12303E3A42E85DC9067 /* Pods-RemedyCoffeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RemedyCoffeeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RemedyCoffeeUITests/Pods-RemedyCoffeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		398BD460DAE4DD1B2A49C187 /* Pods_RemedyCoffee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RemedyCoffee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		102020EB2099653500B087EA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				102020EC2099654900B087EA /* LoginViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		107D887D20803897007239AB /* UsersViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,22 +183,23 @@
 		10B0B085205A10BD00400275 /* RemedyCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				102020EB2099653500B087EA /* Auth */,
+				102020EA2097F7AE00B087EA /* RemedyCoffee.entitlements */,
 				107D888220804526007239AB /* MenuViews */,
 				107D887D20803897007239AB /* UsersViews */,
 				10BED2BD2071A90F00E0C0E6 /* PurchasesViews */,
 				10BED2B2207192A000E0C0E6 /* Model */,
 				10B0B0B6205C6C8B00400275 /* GoogleService-Info.plist */,
 				10B0B086205A10BD00400275 /* AppDelegate.swift */,
-				10B0B088205A10BD00400275 /* ViewController.swift */,
 				10B0B08A205A10BD00400275 /* Main.storyboard */,
 				10B0B08D205A10BD00400275 /* Assets.xcassets */,
 				10420CF02069E7E1009D14E7 /* sampleData.json */,
 				10B0B08F205A10BD00400275 /* LaunchScreen.storyboard */,
 				10B0B092205A10BD00400275 /* Info.plist */,
 				10B0B0B4205A173600400275 /* QRScannerController.swift */,
-				10BED2AA206FF8AE00E0C0E6 /* FacebookLoginManager.swift */,
 				10BED2BB2071A3EE00E0C0E6 /* Extensions.swift */,
 				10C70838209546C200EC6EE7 /* MessageComposer.swift */,
+				10CE4E7C20A13A7100F34656 /* PhoneContacts.swift */,
 			);
 			path = RemedyCoffee;
 			sourceTree = "<group>";
@@ -288,8 +298,6 @@
 				10B0B093205A10BD00400275 /* Sources */,
 				10B0B094205A10BD00400275 /* Frameworks */,
 				10B0B095205A10BD00400275 /* Resources */,
-				D9CD5EA15191A1328187CAAB /* [CP] Embed Pods Frameworks */,
-				426092A5EA25C5577375261C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -309,8 +317,6 @@
 				10B0B09E205A10BD00400275 /* Sources */,
 				10B0B09F205A10BD00400275 /* Frameworks */,
 				10B0B0A0205A10BD00400275 /* Resources */,
-				56D07BCDFF0ED2282DF7B495 /* [CP] Embed Pods Frameworks */,
-				0D9BA4F2F4CFB4CFF535F985 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,6 +341,14 @@
 					10B0B082205A10BD00400275 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					10B0B096205A10BD00400275 = {
 						CreatedOnToolsVersion = 9.2;
@@ -398,36 +412,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D9BA4F2F4CFB4CFF535F985 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffeeUITests/Pods-RemedyCoffeeUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		426092A5EA25C5577375261C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffeeTests/Pods-RemedyCoffeeTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4BD59598D094414440F00C11 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,28 +428,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		56D07BCDFF0ED2282DF7B495 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffeeUITests/Pods-RemedyCoffeeUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffeeUITests/Pods-RemedyCoffeeUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7D3D5C0E56C1A15D21F5FB9A /* [CP] Embed Pods Frameworks */ = {
@@ -504,9 +466,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffee/Pods-RemedyCoffee-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -529,28 +496,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9CD5EA15191A1328187CAAB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffeeTests/Pods-RemedyCoffeeTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RemedyCoffeeTests/Pods-RemedyCoffeeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5C117E679A60F6669D53BA7 /* [CP] Check Pods Manifest.lock */ = {
@@ -578,9 +523,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102020ED2099654900B087EA /* LoginViewController.swift in Sources */,
 				10BED2B6207192FA00E0C0E6 /* Item.swift in Sources */,
 				107D887F20803991007239AB /* UserViewController.swift in Sources */,
-				10B0B089205A10BD00400275 /* ViewController.swift in Sources */,
 				10BED2AD206FFF5900E0C0E6 /* UsersTableController.swift in Sources */,
 				107D8886208045F8007239AB /* ItemTableViewCell.swift in Sources */,
 				10BED2BF2071A92800E0C0E6 /* PurchaseViewController.swift in Sources */,
@@ -594,9 +539,9 @@
 				107D887A207C41D0007239AB /* UserWrapper.swift in Sources */,
 				107D887C207C4EBF007239AB /* ItemWrapper.swift in Sources */,
 				10B0B087205A10BD00400275 /* AppDelegate.swift in Sources */,
+				10CE4E7D20A13A7100F34656 /* PhoneContacts.swift in Sources */,
 				107D88842080453D007239AB /* MenuTableViewController.swift in Sources */,
 				107D8881208044DE007239AB /* ItemViewController.swift in Sources */,
-				10BED2AB206FF8AE00E0C0E6 /* FacebookLoginManager.swift in Sources */,
 				10B0B0B5205A173600400275 /* QRScannerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -764,6 +709,7 @@
 			baseConfigurationReference = 4494930A00539B9155F90D74 /* Pods-RemedyCoffee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RemedyCoffee/RemedyCoffee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -774,6 +720,7 @@
 					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
 				);
 				INFOPLIST_FILE = RemedyCoffee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -787,6 +734,7 @@
 			baseConfigurationReference = 835DB27566771D0E00CC20CF /* Pods-RemedyCoffee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RemedyCoffee/RemedyCoffee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KKW9H2A2Z;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -797,6 +745,7 @@
 					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
 				);
 				INFOPLIST_FILE = RemedyCoffee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.remedycoffee.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";

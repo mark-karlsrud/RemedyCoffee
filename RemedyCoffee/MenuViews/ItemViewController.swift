@@ -33,9 +33,9 @@ class ItemViewController: UIViewController {
     }
     
     @IBAction func buyClick(_ sender: Any) {
-        let toUser = User(name: "Mark", photoUrl: nil, fbId: nil, phone: nil)
+        let toUser = User(name: "Mark", phone: nil, isAdmin: false)
         let to = UserWrapper(id: "user1", user: toUser)
-        let fromUser = User(name: "Bob", photoUrl: nil, fbId: nil, phone: nil)
+        let fromUser = User(name: "Bob", phone: nil, isAdmin: false)
         let from = UserWrapper(id: "user2", user: fromUser)
         let purchaseCode = UUID().uuidString
         let redeemed = false

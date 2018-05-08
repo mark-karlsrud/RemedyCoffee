@@ -10,7 +10,8 @@ import Foundation
 
 struct User: Codable {
     var name: String
-    var photoUrl: String?
-    var fbId: String?
+//    var photoUrl: String?
+//    var fbId: String?
     var phone: Int?
+    var isAdmin: Bool?
 }
