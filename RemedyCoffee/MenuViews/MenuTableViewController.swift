@@ -17,7 +17,7 @@ class MenuTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackground(atLocation: "coffee_on_table.jpg")
+        setBackground(atLocation: "coffee_beans.png")
         self.ref = Database.database().reference()
         loadItems()
     }

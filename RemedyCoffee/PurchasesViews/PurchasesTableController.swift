@@ -18,6 +18,7 @@ class PurchasesTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setBackground(atLocation: "coffee_on_table.jpg")
         self.ref = Database.database().reference()
         loadPurchases()
     }

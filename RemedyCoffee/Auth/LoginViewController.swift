@@ -16,13 +16,18 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     var ref: DatabaseReference!
     var auth: Auth?
     
+    @IBOutlet weak var scanButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scanButton.isHidden = true
+        addBackground(atLocation: "coffee_cheers")
+        
         self.auth = Auth.auth()
         // Do any additional setup after loading the view, typically from a nib.
         
         if let user = self.auth?.currentUser {
-            onSignIn()
+            onSignIn(user.uid)
         } else {
             needsToSignIn()
         }
@@ -39,8 +44,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        onSignIn()
         let user = authDataResult?.user
+        onSignIn((user?.uid)!)
         print(user?.phoneNumber!)
         print(UIDevice.current.name)
         
@@ -68,9 +73,25 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         }
     }
     
-    func onSignIn() {
+    func onSignIn(_ uid: String) {
         print("signed in")
         self.ref = Database.database().reference()
+        
+        self.ref.child("users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
+            do {
+                let user = try snapshot.decode(User.self)
+                print(user)
+                self.checkIfAdmin(user)
+            } catch let error {
+                print(error)
+            }
+        })
+    }
+    
+    func checkIfAdmin(_ user: User) {
+        if user.isAdmin != nil {
+            scanButton.isHidden = false
+        }
     }
     
     func needsToSignIn() {
@@ -88,6 +109,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             needsToSignIn()
         } catch let error {
             print("error signing out")
+            print(error)
         }
     }
 }

@@ -41,6 +41,22 @@ extension Double {
     }
 }
 
+extension UIViewController {
+    func addBackground(atLocation fileLocation: String) {
+        // screen width and height:
+        let background = UIImage(named: fileLocation)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: self.view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = self.view.center
+        imageView.alpha = 0.5
+        self.view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
+}
+
 extension UITableViewController {
     func setBackground(atLocation fileLocation: String) {
         let background = UIImage(named: fileLocation)
@@ -69,4 +85,3 @@ extension Data {
         return try JSONSerialization.jsonObject(with: self, options: []) as! NSDictionary
     }
 }
-
