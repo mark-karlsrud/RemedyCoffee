@@ -23,6 +23,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBackground(atLocation: "coffee_desk")
         
         toLabel.text = purchase?.to.user.name
         fromLabel.text = purchase?.from.user.name
@@ -31,11 +32,11 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         
         if ((purchase?.redeemed)!) {
             redeemedLabel.text = "Redeemed"
-            redeemedLabel.textColor = UIColor.red
+            redeemedLabel.textColor = #colorLiteral(red: 0.6133681536, green: 0, blue: 0, alpha: 1)
             
         } else {
             redeemedLabel.text = "Not Yet Redeemed"
-            redeemedLabel.textColor = UIColor.green
+            redeemedLabel.textColor = #colorLiteral(red: 0, green: 0.5714713931, blue: 0.1940918863, alpha: 1)
         }
         
         let data = purchase?.code.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)

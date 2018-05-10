@@ -51,6 +51,7 @@ class MenuTableController: UITableViewController {
         let item = items[indexPath.row]
         
         cell.descriptionLabel.text = item.item.description
+        cell.priceLabel.text = "$\(item.item.value!)"
         
         return cell
     }

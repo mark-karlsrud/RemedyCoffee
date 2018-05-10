@@ -10,6 +10,7 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

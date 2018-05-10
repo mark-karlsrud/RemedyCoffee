@@ -56,9 +56,9 @@ class PurchasesTableController: UITableViewController {
         cell.amountLabel.text = purchase.item.item.value.toCurrency()
         
         if (purchase.redeemed) {
-            cell.amountLabel.textColor = UIColor.red
+            cell.amountLabel.textColor = #colorLiteral(red: 0.6133681536, green: 0, blue: 0, alpha: 1)
         } else {
-            cell.amountLabel.textColor = UIColor.green
+            cell.amountLabel.textColor = #colorLiteral(red: 0, green: 0.5714713931, blue: 0.1940918863, alpha: 1)
         }
         
         return cell

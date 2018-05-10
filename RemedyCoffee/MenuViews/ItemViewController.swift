@@ -21,9 +21,13 @@ class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBackground(atLocation: "wood_background")
+        
         self.ref = Database.database().reference()
         descriptionLabel.text = item?.item.description
-        valueLabel.text = item?.item.value.description
+        if let price = item?.item.value {
+            valueLabel.text = "$\(price)"
+        }
         sizeLabel.text = item?.item.size
     }
     
