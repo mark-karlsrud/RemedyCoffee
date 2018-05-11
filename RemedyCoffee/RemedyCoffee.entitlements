@@ -5,6 +5,8 @@
 	<key>aps-environment</key>
 	<string>development</string>
 	<key>com.apple.developer.in-app-payments</key>
-	<array/>
+	<array>
+		<string>merchant.com.remedycoffee.ios</string>
+	</array>
 </dict>
 </plist>

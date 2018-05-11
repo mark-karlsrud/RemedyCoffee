@@ -8,11 +8,15 @@
 
 import UIKit
 import Firebase
+import PassKit
 
-class ItemViewController: UIViewController {
+class ItemViewController: UIViewController, PKPaymentAuthorizationViewControllerDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var applePayView: UIView!
+    
+    static let supportedNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
     
     var ref: DatabaseReference!
     var item: ItemWrapper?
@@ -22,6 +26,14 @@ class ItemViewController: UIViewController {
         super.viewDidLoad()
         
         addBackground(atLocation: "wood_background")
+        
+        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: ItemViewController.supportedNetworks) {
+            let button = PKPaymentButton(paymentButtonType: .buy, paymentButtonStyle: .black)
+            button.addTarget(self, action: #selector(applePayButtonPressed(_:)), for: .touchUpInside)
+            button.center = applePayView.convert(applePayView.center, from: applePayView.superview)
+            button.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+            applePayView.addSubview(button)
+        }
         
         self.ref = Database.database().reference()
         descriptionLabel.text = item?.item.description
@@ -36,7 +48,24 @@ class ItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func buyClick(_ sender: Any) {
+    @objc func applePayButtonPressed(_ sender: Any) {
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = "merchant.com.remedycoffee.ios"
+        request.supportedNetworks = ItemViewController.supportedNetworks
+        request.merchantCapabilities = PKMerchantCapability.capability3DS
+        request.countryCode = "US"
+        request.currencyCode = "USD"
+        let price : NSDecimalNumber = NSDecimalNumber(string: item?.item.value.description)
+        request.paymentSummaryItems = [
+            PKPaymentSummaryItem(label: (item?.item.description)!, amount: price)
+        ]
+        
+        let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+        applePayController?.delegate = self
+        self.present(applePayController!, animated: true, completion: nil)
+    }
+    
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping ((PKPaymentAuthorizationStatus) -> Void)) {
         let toUser = User(name: "Mark", phone: nil, isAdmin: false)
         let to = UserWrapper(id: "user1", user: toUser)
         let fromUser = User(name: "Bob", phone: nil, isAdmin: false)
@@ -54,9 +83,15 @@ class ItemViewController: UIViewController {
                                 "/userCredits/\(String(describing: purchase?.to.id!))/\(purchaseCode)/" : json]
             self.ref.updateChildValues(childUpdates)
 //            self.navigationController?.pushViewController(PurchasesTableController(), animated: true)
+            completion(PKPaymentAuthorizationStatus.success)
         } catch let error {
             print(error)
+            completion(PKPaymentAuthorizationStatus.failure)
         }
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

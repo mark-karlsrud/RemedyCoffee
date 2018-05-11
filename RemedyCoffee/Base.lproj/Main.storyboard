@@ -219,47 +219,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eoG-83-nr8">
-                                <rect key="frame" x="149" y="232.5" width="76" height="138"/>
+                                <rect key="frame" x="67" y="222.5" width="240" height="158"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-yl-8SU">
-                                        <rect key="frame" x="0.0" y="0.0" width="76" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLC-WH-C8k">
-                                        <rect key="frame" x="0.0" y="34" width="76" height="24"/>
+                                        <rect key="frame" x="0.0" y="34" width="240" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYn-m6-TXA">
-                                        <rect key="frame" x="0.0" y="68" width="76" height="24"/>
+                                        <rect key="frame" x="0.0" y="68" width="240" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8p-WA-KkQ">
-                                        <rect key="frame" x="0.0" y="102" width="76" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Buy Item"/>
-                                        <connections>
-                                            <action selector="buyClick:" destination="FzY-Dp-aq1" eventType="touchUpInside" id="lQp-hQ-Fq1"/>
-                                            <segue destination="tbJ-VN-Qzs" kind="show" id="WzB-SB-gz8"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-uL-LGB">
+                                        <rect key="frame" x="0.0" y="102" width="240" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="4KR-s3-bTl"/>
+                                            <constraint firstAttribute="width" constant="240" id="Yj0-jT-Tu7"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eoG-83-nr8" firstAttribute="centerX" secondItem="SuS-JW-cBG" secondAttribute="centerX" id="H4l-QO-uXS"/>
-                            <constraint firstItem="eoG-83-nr8" firstAttribute="centerY" secondItem="SuS-JW-cBG" secondAttribute="centerY" id="RJP-PK-rMk"/>
+                            <constraint firstItem="eoG-83-nr8" firstAttribute="centerY" secondItem="SuS-JW-cBG" secondAttribute="centerY" id="GXq-3e-NMn"/>
+                            <constraint firstItem="eoG-83-nr8" firstAttribute="centerX" secondItem="SuS-JW-cBG" secondAttribute="centerX" id="Ysw-Zd-5yn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SuS-JW-cBG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Menu Item" id="FUO-n9-T5Y"/>
                     <connections>
+                        <outlet property="applePayView" destination="jfE-uL-LGB" id="j17-az-KFm"/>
                         <outlet property="descriptionLabel" destination="K4O-yl-8SU" id="AC1-MC-opO"/>
                         <outlet property="sizeLabel" destination="pYn-m6-TXA" id="Sbx-Fe-7qe"/>
                         <outlet property="valueLabel" destination="wLC-WH-C8k" id="9df-Od-qCz"/>
@@ -267,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePz-O8-EyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-662"/>
+            <point key="canvasLocation" x="1912.8" y="-662.51874062968523"/>
         </scene>
         <!--QR Code Scanner-->
         <scene sceneID="jcX-RF-vkg">
@@ -593,7 +592,4 @@
     <resources>
         <image name="RC-Horiz-Logo" width="497" height="236"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="eXM-pg-NKS"/>
-    </inferredMetricsTieBreakers>
 </document>
