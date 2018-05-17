@@ -24,6 +24,12 @@ extension Date {
         dateFormatter.dateFormat = "MMM/dd/YYYY"
         return dateFormatter.string(from: self)
     }
+    
+    func toTimeOnly() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        return dateFormatter.string(from: self)
+    }
 }
 
 extension String {

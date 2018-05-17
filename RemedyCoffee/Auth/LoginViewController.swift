@@ -15,7 +15,7 @@ import Contacts
 class LoginViewController: UIViewController, FUIAuthDelegate {
     var ref: DatabaseReference!
     var auth: Auth?
-    
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
     
     override func viewDidLoad() {
@@ -44,37 +44,39 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        let user = authDataResult?.user
-        onSignIn((user?.uid)!)
-        print(user?.phoneNumber!)
-        print(UIDevice.current.name)
-        
-//        print(PhoneContacts.getContacts())
-        
-        // Create a change request
-        //        self.showSpinner {}
-        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-//        changeRequest?.displayName = name
-        
-        // Commit profile changes to server
-        changeRequest?.commitChanges() { (error) in
+        if let user = authDataResult?.user {
+            onSignIn(user.uid)
+            print(user.phoneNumber!)
+            print(UIDevice.current.name)
             
-            //            self.hideSpinner {}
+    //        print(PhoneContacts.getContacts())
             
-            if let error = error {
-                //                self.showMessagePrompt(error.localizedDescription)
-                return
-            }
-            if let phone = user?.phoneNumber {
-                // [START basic_write]
-                self.ref.child("users").child((user?.uid)!).setValue(["name": UIDevice.current.name, "phone": phone, "isAdmin" : false])
-                // [END basic_write]
+            // Create a change request
+            //        self.showSpinner {}
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+    //        changeRequest?.displayName = name
+            
+            // Commit profile changes to server
+            changeRequest?.commitChanges() { (error) in
+                
+                //            self.hideSpinner {}
+                
+                if let error = error {
+                    //                self.showMessagePrompt(error.localizedDescription)
+                    return
+                }
+                if let phone = user.phoneNumber {
+                    // [START basic_write]
+                    self.ref.child("users").child(user.uid).setValue(["name": UIDevice.current.name, "phone": phone, "isAdmin" : false])
+                    // [END basic_write]
+                }
             }
         }
     }
     
     func onSignIn(_ uid: String) {
         print("signed in")
+        loginButton.setTitle("Sign Out", for: .normal)
         self.ref = Database.database().reference()
         
         self.ref.child("users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
@@ -95,6 +97,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func needsToSignIn() {
+        loginButton.setTitle("Sign In", for: .normal)
         FUIAuth.defaultAuthUI()?.delegate = self
         let phoneProvider = FUIPhoneAuth.init(authUI: FUIAuth.defaultAuthUI()!)
         FUIAuth.defaultAuthUI()?.providers = [phoneProvider]

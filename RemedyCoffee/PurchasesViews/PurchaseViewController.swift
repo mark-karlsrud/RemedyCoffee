@@ -14,6 +14,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     @IBOutlet weak var toLabel: UILabel!
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var imgQRCode: UIImageView!
     @IBOutlet weak var redeemedLabel: UILabel!
@@ -27,7 +28,8 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         
         toLabel.text = purchase?.to.user.name
         fromLabel.text = purchase?.from.user.name
-        dateLabel.text = purchase?.date
+        dateLabel.text = purchase?.date.toDate().toDateOnly()
+        timeLabel.text = purchase?.date.toDate().toTimeOnly()
         amountLabel.text = purchase?.item.item.value.toCurrency()
         
         if ((purchase?.redeemed)!) {

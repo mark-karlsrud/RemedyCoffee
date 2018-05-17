@@ -56,8 +56,9 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         request.countryCode = "US"
         request.currencyCode = "USD"
         let price : NSDecimalNumber = NSDecimalNumber(string: item?.item.value.description)
-        request.paymentSummaryItems = [
-            PKPaymentSummaryItem(label: (item?.item.description)!, amount: price)
+        request.paymentSummaryItems = [            
+            PKPaymentSummaryItem(label: (item?.item.description)!, amount: price),
+            PKPaymentSummaryItem(label: "Remedy Coffee", amount: price)
         ]
         
         let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
