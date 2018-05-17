@@ -16,7 +16,7 @@ class MenuTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         setBackground(atLocation: "coffee_beans.png")
         self.ref = Database.database().reference()
         loadItems()
@@ -36,7 +36,6 @@ class MenuTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -66,12 +65,12 @@ class MenuTableController: UITableViewController {
                     let item = try childSnap.decode(Item.self)
                     let itemWrapper = ItemWrapper(id: childSnap.key, item: item)
                     self.items += [itemWrapper]
-                    print(item)
                 } catch let error {
                     print(error)
                 }
             }
             self.tableView.reloadData()
+            self.tableView.activityStopAnimating()
         })
     }
     

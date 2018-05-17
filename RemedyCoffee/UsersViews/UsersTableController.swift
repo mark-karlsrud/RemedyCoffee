@@ -16,7 +16,7 @@ class UsersTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         self.ref = Database.database().reference()
         loadUsers()
     }
@@ -63,12 +63,12 @@ class UsersTableController: UITableViewController {
                 do {
                     let user = try childSnap.decode(User.self)
                     self.users += [user]
-                    print(user)
                 } catch let error {
                     print(error)
                 }
             }
             self.tableView.reloadData()
+            self.view.activityStopAnimating()
         })
     }
     

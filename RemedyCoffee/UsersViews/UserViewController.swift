@@ -19,7 +19,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         
         nameLabel.text = user?.name
-        phoneLabel.text = user?.phone?.description
+        phoneLabel.text = user?.phone
     }
     
     override func didReceiveMemoryWarning() {

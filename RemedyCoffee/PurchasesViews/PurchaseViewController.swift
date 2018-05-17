@@ -112,7 +112,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
-        messageComposeVC.recipients = [purchase?.to.user.phone?.description] as? [String]
+        messageComposeVC.recipients = [purchase?.to.user.phone] as? [String]
         messageComposeVC.body = "I got you a cup of coffee! Redeem at Remedy Coffee"
         if let data = UIImagePNGRepresentation(imgQRCode.image!) {
             messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase?.code.description)).png")

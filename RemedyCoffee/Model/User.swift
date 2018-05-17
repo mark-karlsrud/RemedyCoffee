@@ -12,6 +12,6 @@ struct User: Codable {
     var name: String
 //    var photoUrl: String?
 //    var fbId: String?
-    var phone: Int?
+    var phone: String?
     var isAdmin: Bool?
 }

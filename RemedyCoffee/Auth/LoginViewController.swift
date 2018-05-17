@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         self.scanButton.isHidden = true
         addBackground(atLocation: "coffee_cheers")
         
@@ -31,6 +32,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         } else {
             needsToSignIn()
         }
+        self.view.activityStopAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,8 +48,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let user = authDataResult?.user {
             onSignIn(user.uid)
-            print(user.phoneNumber!)
-            print(UIDevice.current.name)
             
     //        print(PhoneContacts.getContacts())
             
@@ -75,14 +75,12 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func onSignIn(_ uid: String) {
-        print("signed in")
         loginButton.setTitle("Sign Out", for: .normal)
         self.ref = Database.database().reference()
         
         self.ref.child("users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
             do {
                 let user = try snapshot.decode(User.self)
-                print(user)
                 self.checkIfAdmin(user)
             } catch let error {
                 print(error)

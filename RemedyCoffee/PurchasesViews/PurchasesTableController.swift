@@ -17,7 +17,7 @@ class PurchasesTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         setBackground(atLocation: "coffee_on_table.jpg")
         self.ref = Database.database().reference()
         loadPurchases()
@@ -73,12 +73,12 @@ class PurchasesTableController: UITableViewController {
                 do {
                     let purchase = try childSnap.decode(Purchase.self)
                     self.purchases += [purchase]
-                    print(purchase)
                 } catch let error {
                     print(error)
                 }
             }
             self.tableView.reloadData()
+            self.view.activityStopAnimating()
         })
     }
     
