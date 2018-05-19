@@ -9,7 +9,7 @@
 import UIKit
 
 class PurchasesTableViewCell: UITableViewCell {
-    @IBOutlet weak var toLabel: UILabel!
+    @IBOutlet weak var itemDescriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     

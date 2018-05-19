@@ -51,7 +51,7 @@ class PurchasesTableController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let purchase = purchases[indexPath.row]
         
-        cell.toLabel.text = purchase.to.user.name
+        cell.itemDescriptionLabel.text = purchase.item.item.description
         cell.dateLabel.text = purchase.date.toDate().toDateOnly()
         cell.amountLabel.text = purchase.item.item.value.toCurrency()
         
@@ -73,7 +73,7 @@ class PurchasesTableController: UITableViewController {
                 do {
                     let purchase = try childSnap.decode(Purchase.self)
                     self.purchases += [purchase]
-                } catch let error {
+                 } catch let error {
                     print(error)
                 }
             }

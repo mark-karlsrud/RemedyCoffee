@@ -38,7 +38,7 @@
         <!--Remedy Coffee-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,7 +334,7 @@
         <!--Purchases-->
         <scene sceneID="taQ-gU-tHJ">
             <objects>
-                <tableViewController id="ITf-tM-IzR" customClass="PurchasesTableController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PurchasesTable" id="ITf-tM-IzR" customClass="PurchasesTableController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GlC-jF-Zkr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -353,8 +353,8 @@
                                             <color key="textColor" red="0.0" green="0.5607843137254902" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKH-da-gjs">
-                                            <rect key="frame" x="16" y="9" width="20.5" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKH-da-gjs">
+                                            <rect key="frame" x="16" y="9" width="38" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -378,7 +378,7 @@
                                 <connections>
                                     <outlet property="amountLabel" destination="0jp-kL-N1G" id="ZvE-Xj-PEv"/>
                                     <outlet property="dateLabel" destination="gsP-3o-GMg" id="WG6-ir-zM9"/>
-                                    <outlet property="toLabel" destination="pKH-da-gjs" id="1ig-je-NcY"/>
+                                    <outlet property="itemDescriptionLabel" destination="pKH-da-gjs" id="1ig-je-NcY"/>
                                     <segue destination="tbJ-VN-Qzs" kind="show" id="eXM-pg-NKS"/>
                                 </connections>
                             </tableViewCell>
@@ -399,16 +399,22 @@
         <!--Purchase-->
         <scene sceneID="37H-mc-xnO">
             <objects>
-                <viewController id="tbJ-VN-Qzs" customClass="PurchaseViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PurchaseView" id="tbJ-VN-Qzs" customClass="PurchaseViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KiS-uY-vWH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xgV-8e-ChO">
-                                <rect key="frame" x="50" y="39" width="275" height="525"/>
+                                <rect key="frame" x="50" y="22" width="275" height="559"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nH-hh-ARY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-RF-Lb8">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nH-hh-ARY">
+                                        <rect key="frame" x="0.0" y="34" width="275" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10c-Cs-euj">
                                                 <rect key="frame" x="0.0" y="0.0" width="227" height="24"/>
@@ -425,7 +431,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-mF-v4S">
-                                        <rect key="frame" x="0.0" y="34" width="275" height="24"/>
+                                        <rect key="frame" x="0.0" y="68" width="275" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps1-uR-74y">
                                                 <rect key="frame" x="0.0" y="0.0" width="44.5" height="24"/>
@@ -442,7 +448,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJ1-vU-5Y2">
-                                        <rect key="frame" x="0.0" y="68" width="275" height="24"/>
+                                        <rect key="frame" x="0.0" y="102" width="275" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Purchased" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBX-Ac-2L2">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="24"/>
@@ -459,7 +465,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVw-a7-fue">
-                                        <rect key="frame" x="0.0" y="102" width="275" height="24"/>
+                                        <rect key="frame" x="0.0" y="136" width="275" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Purchased" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3v-cJ-TOy">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="24"/>
@@ -477,7 +483,7 @@
                                         <viewLayoutGuide key="safeArea" id="yBJ-NM-Het"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXc-lj-fEq">
-                                        <rect key="frame" x="0.0" y="136" width="275" height="24"/>
+                                        <rect key="frame" x="0.0" y="170" width="275" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BK0-nO-hp1">
                                                 <rect key="frame" x="0.0" y="0.0" width="69" height="24"/>
@@ -494,7 +500,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1a-BJ-dqB">
-                                        <rect key="frame" x="0.0" y="170" width="275" height="24"/>
+                                        <rect key="frame" x="0.0" y="204" width="275" height="24"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-Wf-n4C">
                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="24"/>
@@ -511,14 +517,14 @@
                                         </subviews>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rwu-7K-z2y">
-                                        <rect key="frame" x="0.0" y="204" width="275" height="275"/>
+                                        <rect key="frame" x="0.0" y="238" width="275" height="275"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="275" id="eg0-4p-m3a"/>
                                             <constraint firstAttribute="height" constant="275" id="hRo-VE-Klk"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6u-Zl-jpg">
-                                        <rect key="frame" x="0.0" y="489" width="275" height="36"/>
+                                        <rect key="frame" x="0.0" y="523" width="275" height="36"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Send to a friend">
@@ -549,6 +555,7 @@
                         <outlet property="dateLabel" destination="RlU-tm-5Ln" id="fFx-eS-Xqv"/>
                         <outlet property="fromLabel" destination="vB9-rS-4RN" id="EZn-m9-md5"/>
                         <outlet property="imgQRCode" destination="rwu-7K-z2y" id="TWZ-Fn-hjw"/>
+                        <outlet property="itemLabel" destination="e6W-RF-Lb8" id="CVU-oY-3pe"/>
                         <outlet property="redeemedLabel" destination="a3t-vh-6p2" id="Dst-Aj-qXD"/>
                         <outlet property="timeLabel" destination="CR7-Q1-xdK" id="jo6-fb-9wN"/>
                         <outlet property="toLabel" destination="0Dh-hB-WAy" id="Q21-qE-GJM"/>

@@ -20,7 +20,7 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
     
     var ref: DatabaseReference!
     var item: ItemWrapper?
-    var purchase: Purchase?
+//    var purchase: Purchase?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,17 +74,17 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         let purchaseCode = UUID().uuidString
         let redeemed = false
         let date = Date().toDateAndTime()
-        purchase = Purchase(to: to, from: from, item: item, code: purchaseCode, redeemed: redeemed, date: date)
+        let purchase = Purchase(to: to, from: from, item: item, code: purchaseCode, redeemed: redeemed, date: date)
         
         let encoder = JSONEncoder()
         do {
             let json = try encoder.encode(purchase).toDict()
             let childUpdates = ["/purchases/\(purchaseCode)/": json,
-                                "/userPurchases/\(String(describing: purchase?.from.id!))/\(purchaseCode)/" : json,
-                                "/userCredits/\(String(describing: purchase?.to.id!))/\(purchaseCode)/" : json]
+                                "/userPurchases/\(String(describing: purchase.from.id!))/\(purchaseCode)/" : json,
+                                "/userCredits/\(String(describing: purchase.to.id!))/\(purchaseCode)/" : json]
             self.ref.updateChildValues(childUpdates)
-//            self.navigationController?.pushViewController(PurchasesTableController(), animated: true)
             completion(PKPaymentAuthorizationStatus.success)
+            goToPurchaseView(purchase)
         } catch let error {
             print(error)
             completion(PKPaymentAuthorizationStatus.failure)
@@ -95,10 +95,18 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         controller.dismiss(animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is PurchaseViewController {
-            let vc = segue.destination as? PurchaseViewController
-            vc?.purchase = purchase
-        }
+    func goToPurchaseView(_ purchase: Purchase) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let purchaseView = storyboard.instantiateViewController(withIdentifier: "PurchaseView") as! PurchaseViewController
+        purchaseView.purchase = purchase
+        
+        var controllers = self.navigationController?.viewControllers
+        print(controllers!)
+        //TODO
+//        controllers?.removeLast()
+//        controllers?.removeLast()
+//        controllers?.append(storyboard.instantiateViewController(withIdentifier: "PurchasesTable") as! PurchasesTableController)
+//        controllers?.append(purchaseView)
+        self.navigationController?.setViewControllers(controllers!, animated: true)
     }
 }

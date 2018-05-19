@@ -18,21 +18,25 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var imgQRCode: UIImageView!
     @IBOutlet weak var redeemedLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel!
     
     var purchase: Purchase?
-    var qrCode: UIImage?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackground(atLocation: "coffee_desk")
+        toLabel.text = purchase!.to.user.name
+        fromLabel.text = purchase!.from.user.name
+        itemLabel.text = purchase!.item.item.description
+        dateLabel.text = purchase!.date.toDate().toDateOnly()
+        timeLabel.text = purchase!.date.toDate().toTimeOnly()
+        amountLabel.text = purchase!.item.item.value.toCurrency()
         
-        toLabel.text = purchase?.to.user.name
-        fromLabel.text = purchase?.from.user.name
-        dateLabel.text = purchase?.date.toDate().toDateOnly()
-        timeLabel.text = purchase?.date.toDate().toTimeOnly()
-        amountLabel.text = purchase?.item.item.value.toCurrency()
-        
-        if ((purchase?.redeemed)!) {
+        if ((purchase!.redeemed)!) {
             redeemedLabel.text = "Redeemed"
             redeemedLabel.textColor = #colorLiteral(red: 0.6133681536, green: 0, blue: 0, alpha: 1)
             
@@ -41,7 +45,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
             redeemedLabel.textColor = #colorLiteral(red: 0, green: 0.5714713931, blue: 0.1940918863, alpha: 1)
         }
         
-        let data = purchase?.code.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+        let data = purchase!.code.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
         
         let filter = CIFilter(name: "CIQRCodeGenerator")
         
@@ -112,10 +116,10 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
-        messageComposeVC.recipients = [purchase?.to.user.phone] as? [String]
-        messageComposeVC.body = "I got you a cup of coffee! Redeem at Remedy Coffee"
+        messageComposeVC.recipients = [purchase!.to.user.phone] as? [String]
+        messageComposeVC.body = "I got you a \(purchase!.item.item.description!.lowercased())! Redeem at Remedy Coffee"
         if let data = UIImagePNGRepresentation(imgQRCode.image!) {
-            messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase?.code.description)).png")
+            messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase!.code.description)).png")
         }
         return messageComposeVC
     }
