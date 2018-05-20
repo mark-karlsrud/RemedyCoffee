@@ -126,9 +126,14 @@ class QRScannerController: UIViewController {
             // Get users from purchase so we can update all entries
             do {
                 let purchase = try snapshot.decode(Purchase.self)
-                let childUpdates = ["/purchases/\(purchaseCode)/redeemed/": true,
-                                    "/userPurchases/\(purchase.from.id!)/\(purchaseCode)/redeemed/" : true,
-                                    "/userCredits/\(purchase.to.id!)/\(purchaseCode)/redeemed/" : true]
+                var childUpdates = ["/purchases/\(purchaseCode)/redeemed/": true,
+                                    "/userPurchases/\(purchase.purchaser.id!)/\(purchaseCode)/redeemed/" : true]
+                //Update redeemed value for everyone that the item was shared with
+                //TODO do we want to keep track of this?
+//                for (id, _) in purchase.sharedTo {
+//                    childUpdates["/userPurchases/\(id)/\(purchaseCode)/redeemed/"] = true
+//                }
+                
                 self.ref.updateChildValues(childUpdates)
             } catch let error {
                 print(error)

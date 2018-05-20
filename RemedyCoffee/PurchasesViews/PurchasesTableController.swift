@@ -67,7 +67,7 @@ class PurchasesTableController: UITableViewController {
     //MARK: Private Methods
     
     private func loadPurchases() {
-        self.ref.child("purchases").observeSingleEvent(of: .value, with: { snapshot in
+        self.ref.child("userPurchases").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
                 guard let childSnap = child as? DataSnapshot else { return }
                 do {

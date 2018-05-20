@@ -9,10 +9,10 @@
 import UIKit
 import Firebase
 import MessageUI
+import Contacts
 
 class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDelegate {
-    @IBOutlet weak var toLabel: UILabel!
-    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var purchaserLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
@@ -28,9 +28,9 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.searchForContactUsingPhoneNumber(phoneNumber: "(480)313-1223)")
         addBackground(atLocation: "coffee_desk")
-        toLabel.text = purchase!.to.user.name
-        fromLabel.text = purchase!.from.user.name
+        purchaserLabel.text = purchase!.purchaser.user.name
         itemLabel.text = purchase!.item.item.description
         dateLabel.text = purchase!.date.toDate().toDateOnly()
         timeLabel.text = purchase!.date.toDate().toTimeOnly()
@@ -116,8 +116,8 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
-        messageComposeVC.recipients = [purchase!.to.user.phone] as? [String]
-        messageComposeVC.body = "I got you a \(purchase!.item.item.description!.lowercased())! Redeem at Remedy Coffee"
+//        messageComposeVC.recipients = [purchase!.to.user.phone] as? [String]
+        messageComposeVC.body = "I got you a \(purchase!.item.item.description!.lowercased())! Redeem at Remedy Coffee. Open in app: remedycoffee://test/1"
         if let data = UIImagePNGRepresentation(imgQRCode.image!) {
             messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase!.code.description)).png")
         }

@@ -67,21 +67,18 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
     }
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping ((PKPaymentAuthorizationStatus) -> Void)) {
-        let toUser = User(name: "Mark", phone: nil, isAdmin: false)
-        let to = UserWrapper(id: "user1", user: toUser)
-        let fromUser = User(name: "Bob", phone: nil, isAdmin: false)
-        let from = UserWrapper(id: "user2", user: fromUser)
+        let fromUser = User(name: "?", phone: nil, isAdmin: false)
+        let purchaser = UserWrapper(id: Auth.auth().currentUser!.uid, user: fromUser)
         let purchaseCode = UUID().uuidString
         let redeemed = false
         let date = Date().toDateAndTime()
-        let purchase = Purchase(to: to, from: from, item: item, code: purchaseCode, redeemed: redeemed, date: date)
+        let purchase = Purchase(purchaser: purchaser, item: item, code: purchaseCode, redeemed: redeemed, date: date, sharedTo: [Auth.auth().currentUser!.uid: fromUser])
         
         let encoder = JSONEncoder()
         do {
             let json = try encoder.encode(purchase).toDict()
             let childUpdates = ["/purchases/\(purchaseCode)/": json,
-                                "/userPurchases/\(String(describing: purchase.from.id!))/\(purchaseCode)/" : json,
-                                "/userCredits/\(String(describing: purchase.to.id!))/\(purchaseCode)/" : json]
+                                "/userPurchases/\(String(describing: purchase.purchaser.id!))/\(purchaseCode)/" : json]
             self.ref.updateChildValues(childUpdates)
             completion(PKPaymentAuthorizationStatus.success)
             goToPurchaseView(purchase)

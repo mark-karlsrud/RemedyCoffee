@@ -23,6 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>remedycoffee</string>
 				<string>fb1706010006123469</string>
 			</array>
 		</dict>

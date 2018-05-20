@@ -9,10 +9,10 @@
 import Foundation
 
 struct Purchase: Codable {
-    var to: UserWrapper!
-    var from: UserWrapper!
+    var purchaser: UserWrapper!
     var item: ItemWrapper!
     var code: String!
     var redeemed: Bool!
     var date: String
+    var sharedTo: [String : User]
 }

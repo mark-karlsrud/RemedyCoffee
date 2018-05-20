@@ -48,5 +48,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // MARK: Deeplinks
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let purchaseCode = url.host!
+        //1. Add to purchases
+        //2. Go to purchase view
+        
+        let navController = self.window?.rootViewController as! UINavigationController;
+
+        var controllers = [UIViewController]()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginView = storyboard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
+        let purchaseTable = storyboard.instantiateViewController(withIdentifier: "PurchasesTable") as! PurchasesTableController
+        let purchaseView = storyboard.instantiateViewController(withIdentifier: "PurchaseView") as! PurchaseViewController
+        
+        //If they aren't signed in, it will be caught. They will have to sign in and they will go to the main page
+        let ref = Database.database().reference()
+        ref.child("purchases").child(purchaseCode).observeSingleEvent(of: .value, with: { snapshot in
+            // Get users from purchase so we can update all entries
+            do {
+                let purchase = try snapshot.decode(Purchase.self)
+                let childUpdates = ["/purchases/\(purchaseCode)/sharedTo/\(Auth.auth().currentUser!.uid)/": User(name: UIDevice.current.name, phone: nil, isAdmin: false),
+                                    "/userPurchases/\(Auth.auth().currentUser!.uid)/\(purchaseCode)/" : purchase] as [String : Any]
+                
+                purchaseView.purchase = purchase
+                
+                controllers.append(loginView)
+                controllers.append(purchaseTable)
+                controllers.append(purchaseView)
+                print(controllers)
+                navController.setViewControllers(controllers, animated: true)
+                //TODO do we want to keep track of this?
+//                ref.updateChildValues(childUpdates)
+            } catch let error {
+                print(error)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        return true
+    }
 }
 
