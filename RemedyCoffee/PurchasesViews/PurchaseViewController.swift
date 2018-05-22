@@ -45,14 +45,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
             redeemedLabel.textColor = #colorLiteral(red: 0, green: 0.5714713931, blue: 0.1940918863, alpha: 1)
         }
         
-        let data = purchase!.code.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
-        
-        let filter = CIFilter(name: "CIQRCodeGenerator")
-        
-        filter?.setValue(data, forKey: "inputMessage")
-        filter?.setValue("Q", forKey: "inputCorrectionLevel")
-        
-        displayQRCodeImage(qrcodeImage: (filter?.outputImage)!)
+        imgQRCode.image = createQRCodeImage(code: purchase!.code)
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,34 +53,38 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         // Dispose of any resources that can be recreated.
     }
     
-    func generateQRCode(from string: String) -> UIImage? {
-        let data = string.data(using: String.Encoding.ascii)
+    func createQRCodeImage(code: String) -> UIImage? {
+        let data = code.data(using: String.Encoding.utf8, allowLossyConversion: false)
         
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            filter.setValue("Q", forKey: "inputCorrectionLevel")
+            var qrImage : CIImage?
+            if let colorFilter = CIFilter(name: "CIFalseColor") {
+                colorFilter.setValue(filter.outputImage, forKey: "inputImage")
+                colorFilter.setValue(CIColor(red: 1, green: 1, blue: 1, alpha: 0), forKey: "inputColor1") // Background white
+                colorFilter.setValue(CIColor(red: 0.1137254902, green: 0.1058823529, blue: 0.1019607843, alpha: 1)
+                    , forKey: "inputColor0") // Foreground or the barcode RED
+//                #colorLiteral(red: 0.1137254902, green: 0.1058823529, blue: 0.1019607843, alpha: 1).ciColor
+                qrImage = colorFilter.outputImage
+            } else {
+                qrImage = filter.outputImage
+            }
             
-            if let output = filter.outputImage?.transformed(by: transform) {
-                return UIImage(ciImage: output)
+            if let qrcodeImage = qrImage {
+                let scaleX = imgQRCode.frame.size.width / qrcodeImage.extent.size.width
+                let scaleY = imgQRCode.frame.size.height / qrcodeImage.extent.size.height
+                
+                let transformedImage = qrcodeImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+                
+                let context: CIContext = CIContext.init(options: nil)
+                let cgImage: CGImage = context.createCGImage(transformedImage, from: transformedImage.extent)!
+                let image: UIImage = UIImage.init(cgImage: cgImage)
+                
+                return image
             }
         }
-        
         return nil
-    }
-    
-    func displayQRCodeImage(qrcodeImage: CIImage) {
-        let scaleX = imgQRCode.frame.size.width / qrcodeImage.extent.size.width
-        let scaleY = imgQRCode.frame.size.height / qrcodeImage.extent.size.height
-        
-        let transformedImage = qrcodeImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
-        
-        let context: CIContext = CIContext.init(options: nil)
-        let cgImage: CGImage = context.createCGImage(transformedImage, from: transformedImage.extent)!
-        let image: UIImage = UIImage.init(cgImage: cgImage)
-        
-//        qrCode = UIImage(ciImage: transformedImage)
-        
-        imgQRCode.image = image
     }
     @IBAction func didClickSendToFriend(_ sender: Any) {
         // Make sure the device can send text messages
@@ -117,7 +114,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
 //        messageComposeVC.recipients = [purchase!.to.user.phone] as? [String]
-        messageComposeVC.body = "I got you a \(purchase!.item.item.description!.lowercased())! Redeem at Remedy Coffee. Open in app: remedycoffee://test/1"
+        messageComposeVC.body = "I got you a \(purchase!.item.item.description!.lowercased())! Redeem at Remedy Coffee. Open in app: remedycoffee://\(purchase!.item.id)"
         if let data = UIImagePNGRepresentation(imgQRCode.image!) {
             messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase!.code.description)).png")
         }
