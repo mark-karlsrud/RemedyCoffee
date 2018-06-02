@@ -17,15 +17,16 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     var auth: Auth?
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
+    @IBOutlet weak var usersButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         self.scanButton.isHidden = true
+        self.usersButton.isHidden = true //TODO Not using this feature yet, not complete
         addBackground(atLocation: "coffee_cheers")
         
         self.auth = Auth.auth()
-        // Do any additional setup after loading the view, typically from a nib.
         
         if let user = self.auth?.currentUser {
             onSignIn(user.uid)
@@ -38,11 +39,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func submitPhoneNumber(_ sender: Any) {
-//        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
-//        phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {

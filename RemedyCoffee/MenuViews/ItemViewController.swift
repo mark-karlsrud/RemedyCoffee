@@ -40,7 +40,9 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         if let price = item?.item.value {
             valueLabel.text = "$\(price)"
         }
-        sizeLabel.text = item?.item.size
+        if let size = item?.item.size {
+            sizeLabel.text = "Size: \(size)"
+        }
     }
     
     override func didReceiveMemoryWarning() {
