@@ -12,13 +12,14 @@ import MessageUI
 import Contacts
 
 class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDelegate {
-    @IBOutlet weak var purchaserLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var imgQRCode: UIImageView!
     @IBOutlet weak var redeemedLabel: UILabel!
     @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
     
     var purchase: Purchase?
     
@@ -30,7 +31,8 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         super.viewDidLoad()
 //        self.searchForContactUsingPhoneNumber(phoneNumber: "(480)313-1223)")
         addBackground(atLocation: "coffee_desk")
-        purchaserLabel.text = purchase!.purchaser.user.name
+        descriptionLabel.text = purchase!.item.item.description
+        sizeLabel.text = purchase!.item.item.size
         itemLabel.text = purchase!.item.item.description
         dateLabel.text = purchase!.date.toDate().toDateOnly()
         timeLabel.text = purchase!.date.toDate().toTimeOnly()
