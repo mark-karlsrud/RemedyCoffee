@@ -62,10 +62,17 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
             var qrImage : CIImage?
             if let colorFilter = CIFilter(name: "CIFalseColor") {
                 colorFilter.setValue(filter.outputImage, forKey: "inputImage")
-                colorFilter.setValue(CIColor(red: 1, green: 1, blue: 1, alpha: 0), forKey: "inputColor1") // Background white
-                colorFilter.setValue(CIColor(red: 0.1137254902, green: 0.1058823529, blue: 0.1019607843, alpha: 1)
-                    , forKey: "inputColor0") // Foreground or the barcode RED
-//                #colorLiteral(red: 0.1137254902, green: 0.1058823529, blue: 0.1019607843, alpha: 1).ciColor
+                colorFilter.setValue(CIColor(red: 1, green: 1, blue: 1, alpha: 0), forKey: "inputColor1") //Background white
+                if let isRedeemed = purchase?.redeemed {
+                    let alpha: CGFloat
+                    if isRedeemed {
+                        alpha = 0.3
+                    } else {
+                        alpha = 1
+                    }
+                    colorFilter.setValue(CIColor(red: 0.1137254902, green: 0.1058823529, blue: 0.1019607843, alpha: alpha) //Remedy Black
+                        , forKey: "inputColor0")
+                }
                 qrImage = colorFilter.outputImage
             } else {
                 qrImage = filter.outputImage

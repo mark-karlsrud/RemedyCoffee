@@ -21,7 +21,13 @@ extension Date {
     
     func toDateOnly() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM/dd/YYYY"
+        dateFormatter.dateFormat = "MM/dd/YYYY"
+        return dateFormatter.string(from: self)
+    }
+    
+    func toShortDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd"
         return dateFormatter.string(from: self)
     }
     

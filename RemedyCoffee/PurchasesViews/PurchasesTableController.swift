@@ -52,7 +52,7 @@ class PurchasesTableController: UITableViewController {
         let purchase = purchases[indexPath.row]
         
         cell.itemDescriptionLabel.text = purchase.item.item.description
-        cell.dateLabel.text = purchase.date.toDate().toDateOnly()
+        cell.dateLabel.text = purchase.date.toDate().toShortDate()
         cell.amountLabel.text = purchase.item.item.value.toCurrency()
         
         if (purchase.redeemed) {
