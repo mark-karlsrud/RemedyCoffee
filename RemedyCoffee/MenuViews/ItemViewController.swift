@@ -100,12 +100,15 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         purchaseView.purchase = purchase
         
         var controllers = self.navigationController?.viewControllers
-        print(controllers!)
-        //TODO
-//        controllers?.removeLast()
-//        controllers?.removeLast()
-//        controllers?.append(storyboard.instantiateViewController(withIdentifier: "PurchasesTable") as! PurchasesTableController)
-//        controllers?.append(purchaseView)
+//        print(controllers!)
+        if controllers?.last is ItemViewController {
+            controllers?.removeLast()
+        }
+        if controllers?.last is MenuTableController {
+            controllers?.removeLast()
+        }
+        controllers?.append(storyboard.instantiateViewController(withIdentifier: "PurchasesTable") as! PurchasesTableController)
+        controllers?.append(purchaseView)
         self.navigationController?.setViewControllers(controllers!, animated: true)
     }
 }
