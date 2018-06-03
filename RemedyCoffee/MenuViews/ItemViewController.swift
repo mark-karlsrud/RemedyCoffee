@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 import PassKit
 
 class ItemViewController: UIViewController, PKPaymentAuthorizationViewControllerDelegate {
@@ -15,12 +16,12 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var applePayView: UIView!
+    @IBOutlet weak var image: UIImageView!
     
     static let supportedNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
     
     var ref: DatabaseReference!
     var item: ItemWrapper?
-//    var purchase: Purchase?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,15 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         }
         if let size = item?.item.size {
             sizeLabel.text = "Size: \(size)"
+        }
+        
+        if let imageName = item?.item.imageName {
+            let reference = Storage.storage().reference().child("images/menu/\(imageName)")
+            reference.getData(maxSize: 1 * Int64(self.image.frame.width) * Int64(self.image.frame.height)) { data, error in
+                self.image.image = UIImage(data: data!)
+            }
+        } else {
+            self.image.isHidden = true
         }
     }
     

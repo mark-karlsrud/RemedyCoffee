@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -221,7 +222,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eoG-83-nr8">
-                                <rect key="frame" x="67" y="163.5" width="240" height="276"/>
+                                <rect key="frame" x="67" y="38.5" width="240" height="526"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-yl-8SU">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="42"/>
@@ -229,27 +230,33 @@
                                         <color key="textColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlx-kE-dy6">
+                                        <rect key="frame" x="0.0" y="52" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nlx-kE-dy6" secondAttribute="height" multiplier="1:1" id="me7-mf-RHV"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLC-WH-C8k">
-                                        <rect key="frame" x="0.0" y="52" width="240" height="24"/>
+                                        <rect key="frame" x="0.0" y="302" width="240" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="small" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYn-m6-TXA">
-                                        <rect key="frame" x="0.0" y="86" width="240" height="24"/>
+                                        <rect key="frame" x="0.0" y="336" width="240" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-uL-LGB">
-                                        <rect key="frame" x="0.0" y="120" width="240" height="56"/>
+                                        <rect key="frame" x="0.0" y="370" width="240" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="4KR-s3-bTl"/>
                                             <constraint firstAttribute="width" constant="240" id="Yj0-jT-Tu7"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYs-Z9-alD">
-                                        <rect key="frame" x="0.0" y="186" width="240" height="90"/>
+                                        <rect key="frame" x="0.0" y="436" width="240" height="90"/>
                                         <string key="text">After your purchase is complete, you will receive a QRCode within the app that can be redeemed at Remedy Coffee. You can also text the code to a friend!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
@@ -269,6 +276,7 @@
                     <connections>
                         <outlet property="applePayView" destination="jfE-uL-LGB" id="j17-az-KFm"/>
                         <outlet property="descriptionLabel" destination="K4O-yl-8SU" id="AC1-MC-opO"/>
+                        <outlet property="image" destination="nlx-kE-dy6" id="F7u-zw-cWd"/>
                         <outlet property="sizeLabel" destination="pYn-m6-TXA" id="Sbx-Fe-7qe"/>
                         <outlet property="valueLabel" destination="wLC-WH-C8k" id="9df-Od-qCz"/>
                     </connections>

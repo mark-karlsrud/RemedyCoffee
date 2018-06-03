@@ -13,6 +13,7 @@ target 'RemedyCoffee' do
   pod 'FirebaseUI/Database'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Phone'
+  pod 'Firebase/Storage'
 
   target 'RemedyCoffeeTests' do
     inherit! :search_paths

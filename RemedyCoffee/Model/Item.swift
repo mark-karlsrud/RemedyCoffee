@@ -12,4 +12,5 @@ struct Item: Codable {
     var description: String?
     var size: String?
     var value: Double!
+    var imageName: String?
 }
