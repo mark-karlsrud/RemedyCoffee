@@ -30,11 +30,13 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         super.viewDidLoad()
 //        self.searchForContactUsingPhoneNumber(phoneNumber: "(480)313-1223)")
         addBackground(atLocation: "coffee_desk")
-        sizeLabel.text = purchase!.item.item.size
-        itemLabel.text = purchase!.item.item.description
-        dateLabel.text = purchase!.date.toDate().toDateOnly()
-        timeLabel.text = purchase!.date.toDate().toTimeOnly()
-        amountLabel.text = purchase!.item.item.value.toCurrency()
+        if let purchase = purchase {
+            sizeLabel.text = purchase.item.item.size
+            itemLabel.text = purchase.item.item.description
+            dateLabel.text = purchase.date.toDate().toDateOnly()
+            timeLabel.text = purchase.date.toDate().toTimeOnly()
+            amountLabel.text = purchase.item.item.value.toCurrency()
+        }
         
         if ((purchase!.redeemed)!) {
             redeemedLabel.text = "Redeemed"
