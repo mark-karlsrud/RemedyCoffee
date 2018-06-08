@@ -146,7 +146,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Remedy Coffee" id="KlI-H5-pKn"/>
                     <connections>
+                        <outlet property="buyItemButton" destination="673-vR-Lpi" id="69B-hW-AyD"/>
                         <outlet property="loginButton" destination="Hqa-gN-Qlv" id="usf-NH-ohG"/>
+                        <outlet property="myPurchasesButton" destination="ssS-dC-fCv" id="EGd-rx-SfE"/>
                         <outlet property="scanButton" destination="Mr9-d6-tA4" id="QZs-9A-mMx"/>
                         <outlet property="usersButton" destination="Y1g-tY-nfO" id="xwA-sr-OiI"/>
                     </connections>

@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var usersButton: UIButton!
+    @IBOutlet weak var buyItemButton: UIButton!
+    @IBOutlet weak var myPurchasesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +75,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     func onSignIn(_ uid: String) {
         loginButton.setTitle("Sign Out", for: .normal)
         self.ref = Database.database().reference()
-        
+        myPurchasesButton.isHidden = false
+        buyItemButton.isHidden = false
         self.ref.child("users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
             do {
                 let user = try snapshot.decode(User.self)
@@ -91,6 +94,9 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func needsToSignIn() {
+        myPurchasesButton.isHidden = true
+        buyItemButton.isHidden = true
+        
         loginButton.setTitle("Sign In", for: .normal)
         FUIAuth.defaultAuthUI()?.delegate = self
         let phoneProvider = FUIPhoneAuth.init(authUI: FUIAuth.defaultAuthUI()!)
