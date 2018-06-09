@@ -19,6 +19,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     @IBOutlet weak var redeemedLabel: UILabel!
     @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     var purchase: Purchase?
     
@@ -28,7 +29,6 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.searchForContactUsingPhoneNumber(phoneNumber: "(480)313-1223)")
         addBackground(atLocation: "coffee_desk")
         if let purchase = purchase {
             sizeLabel.text = purchase.item.item.size
@@ -41,7 +41,7 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
         if ((purchase!.redeemed)!) {
             redeemedLabel.text = "Redeemed"
             redeemedLabel.textColor = #colorLiteral(red: 0.6133681536, green: 0, blue: 0, alpha: 1)
-            
+            sendButton.isHidden = true
         } else {
             redeemedLabel.text = "Not Yet Redeemed"
             redeemedLabel.textColor = #colorLiteral(red: 0, green: 0.5714713931, blue: 0.1940918863, alpha: 1)
@@ -122,10 +122,12 @@ class PurchaseViewController: UIViewController, MFMessageComposeViewControllerDe
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
-//        messageComposeVC.recipients = [purchase!.to.user.phone] as? [String]
-        messageComposeVC.body = "I got you a \(purchase!.item.item.description!.lowercased())! Redeem at Remedy Coffee. Open in app: remedycoffee://\(purchase!.item.id)"
-        if let data = UIImagePNGRepresentation(imgQRCode.image!) {
-            messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase!.code.description)).png")
+        if let purchase = purchase {
+    //        messageComposeVC.recipients = [purchase!.to.user.phone] as? [String]
+            messageComposeVC.body = "I got you a \(purchase.item.item.description!.lowercased())! Redeem at Remedy Coffee. Open in app: remedycoffee://\(purchase.code.description)"
+            if let data = UIImagePNGRepresentation(imgQRCode.image!) {
+                messageComposeVC.addAttachmentData(data, typeIdentifier: "png", filename: "\(String(describing: purchase.code.description)).png")
+            }
         }
         return messageComposeVC
     }

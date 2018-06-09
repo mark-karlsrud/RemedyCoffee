@@ -619,6 +619,7 @@
                         <outlet property="imgQRCode" destination="xvx-MM-VCk" id="RmI-1Q-SGK"/>
                         <outlet property="itemLabel" destination="DXz-Oa-o8K" id="lFg-Pw-h8B"/>
                         <outlet property="redeemedLabel" destination="lad-qh-kzS" id="99w-Vw-bpW"/>
+                        <outlet property="sendButton" destination="OsL-JJ-Z0C" id="2OC-5M-n1a"/>
                         <outlet property="sizeLabel" destination="dEH-LA-fIH" id="Rm0-CI-iaj"/>
                         <outlet property="timeLabel" destination="jt2-iV-bH2" id="YB6-Jc-eW0"/>
                     </connections>
