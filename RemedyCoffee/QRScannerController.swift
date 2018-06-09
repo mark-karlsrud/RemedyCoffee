@@ -102,22 +102,46 @@ class QRScannerController: UIViewController {
             return
         }
         
-        //TODO add logic to make sure decodedStr is in the correct form (coupon UUID)
-        
-        let alertPrompt = UIAlertController(title: "Coffee Coupon", message: "Mark coupon \(decodedStr) as redeemed? ", preferredStyle: .actionSheet)
-        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
-            print("Redeemed coupon \(decodedStr)")
-            self.redeemCoupon(purchaseCode: decodedStr)
-            self.captureSession.stopRunning()
-            self.navigationController?.popViewController(animated: true)
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
-        alertPrompt.addAction(confirmAction)
-        alertPrompt.addAction(cancelAction)
-        
-        present(alertPrompt, animated: true, completion: nil)
+        if let purchaseCode = UUID(uuidString: decodedStr) {
+            ref.child("purchases").child(purchaseCode.uuidString).observeSingleEvent(of: .value, with: { snapshot in
+                // Get users from purchase so we can update all entries
+                let alertPrompt: UIAlertController
+                do {
+                    let purchase = try snapshot.decode(Purchase.self)
+                    if purchase.redeemed {
+                        alertPrompt = UIAlertController(title: "Coffee Coupon", message: "Already redeemed!", preferredStyle: .actionSheet)
+                    } else {
+                        alertPrompt = UIAlertController(title: "Coffee Coupon", message: "Mark coupon as redeemed?", preferredStyle: .actionSheet)
+                        let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                            print("Redeemed coupon \(purchaseCode.uuidString)")
+                            self.redeemCoupon(purchaseCode: purchaseCode.uuidString)
+                            self.captureSession.stopRunning()
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                        alertPrompt.addAction(confirmAction)
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                    
+                    alertPrompt = UIAlertController(title: "Coffee Coupon", message: "Not a valid code.", preferredStyle: .actionSheet)
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+                alertPrompt.addAction(cancelAction)
+                self.present(alertPrompt, animated: true, completion: nil)
+            }) { (error) in
+                print(error.localizedDescription)
+                
+                let alertPrompt = UIAlertController(title: "Coffee Coupon", message: "An error has occurred.", preferredStyle: .actionSheet)
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+                alertPrompt.addAction(cancelAction)
+                self.present(alertPrompt, animated: true, completion: nil)
+            }
+        } else {
+            let alertPrompt = UIAlertController(title: "Coffee Coupon", message: "Not a valid code.", preferredStyle: .actionSheet)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+            alertPrompt.addAction(cancelAction)
+            self.present(alertPrompt, animated: true, completion: nil)
+        }
     }
     
     func redeemCoupon(purchaseCode: String) {
