@@ -45,37 +45,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="azZ-AQ-MP2">
-                                <rect key="frame" x="50" y="121.5" width="275" height="360"/>
+                                <rect key="frame" x="47" y="144.5" width="280" height="314"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RC-Horiz-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ndY-9J-EH5">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="5Jg-GG-MUl"/>
-                                            <constraint firstAttribute="width" constant="275" id="J3O-Nf-1DL"/>
+                                            <constraint firstAttribute="width" constant="280" id="J3O-Nf-1DL"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1g-tY-nfO">
-                                        <rect key="frame" x="0.0" y="140" width="275" height="36"/>
-                                        <color key="backgroundColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Users">
-                                            <color key="titleColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="osk-ue-nAe" kind="show" id="5ff-3b-cCO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-dC-fCv">
-                                        <rect key="frame" x="0.0" y="186" width="275" height="36"/>
-                                        <color key="backgroundColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="  My Purchases  ">
-                                            <color key="titleColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-dC-fCv">
+                                        <rect key="frame" x="0.0" y="140" width="280" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="XhG-Qw-Dgl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="-75" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="175" maxY="0.0"/>
+                                        <state key="normal" title="My Purchases" image="logo-coffee-3">
+                                            <color key="titleColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -86,12 +75,17 @@
                                             <segue destination="ITf-tM-IzR" kind="show" id="vlN-eA-qqb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="673-vR-Lpi">
-                                        <rect key="frame" x="0.0" y="232" width="275" height="36"/>
-                                        <color key="backgroundColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="673-vR-Lpi">
+                                        <rect key="frame" x="0.0" y="186" width="280" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="hFh-cH-SPh"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Buy Item">
-                                            <color key="titleColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="-75" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="175" maxY="0.0"/>
+                                        <state key="normal" title="Buy Item" image="logo-coffee-4">
+                                            <color key="titleColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -102,12 +96,17 @@
                                             <segue destination="g2A-O8-9ml" kind="show" id="izs-DQ-RLU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr9-d6-tA4">
-                                        <rect key="frame" x="0.0" y="278" width="275" height="36"/>
-                                        <color key="backgroundColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mr9-d6-tA4">
+                                        <rect key="frame" x="0.0" y="232" width="280" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="vvC-Nl-RjL"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Scan">
-                                            <color key="titleColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="-75" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="175" maxY="0.0"/>
+                                        <state key="normal" title="Scan" image="logo-coffee-3">
+                                            <color key="titleColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -119,8 +118,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqa-gN-Qlv">
-                                        <rect key="frame" x="0.0" y="324" width="275" height="36"/>
+                                        <rect key="frame" x="0.0" y="278" width="280" height="36"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.1058823529" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="iQP-pq-1gx"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,8 +141,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="azZ-AQ-MP2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TjI-mU-q1r"/>
-                            <constraint firstItem="azZ-AQ-MP2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="pVt-Nh-c58"/>
+                            <constraint firstItem="azZ-AQ-MP2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RP0-KS-W31"/>
+                            <constraint firstItem="azZ-AQ-MP2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b1h-2V-WUG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -150,12 +152,11 @@
                         <outlet property="loginButton" destination="Hqa-gN-Qlv" id="usf-NH-ohG"/>
                         <outlet property="myPurchasesButton" destination="ssS-dC-fCv" id="EGd-rx-SfE"/>
                         <outlet property="scanButton" destination="Mr9-d6-tA4" id="QZs-9A-mMx"/>
-                        <outlet property="usersButton" destination="Y1g-tY-nfO" id="xwA-sr-OiI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="81"/>
+            <point key="canvasLocation" x="96.799999999999997" y="80.50974512743629"/>
         </scene>
         <!--Menu-->
         <scene sceneID="V7j-xS-kzD">
@@ -335,7 +336,7 @@
             <objects>
                 <tableViewController id="osk-ue-nAe" customClass="UsersTableController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gOX-2z-kTf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -633,11 +634,11 @@
             <objects>
                 <viewController id="acO-vf-6o2" customClass="UserViewController" customModule="RemedyCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xkW-3g-Xcd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KmB-yv-Tkj">
-                                <rect key="frame" x="50" y="130" width="275" height="343"/>
+                                <rect key="frame" x="50" y="172" width="275" height="343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mv-ii-69g">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="24"/>
@@ -678,8 +679,23 @@
             </objects>
             <point key="canvasLocation" x="935" y="842"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="8TC-jh-7gw">
+            <objects>
+                <viewController id="sYC-nt-McJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hvj-Wd-6ya">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bLj-Sp-xb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="RC-Horiz-Logo" width="497" height="236"/>
+        <image name="logo-coffee-3" width="104" height="155"/>
+        <image name="logo-coffee-4" width="104" height="155"/>
     </resources>
 </document>

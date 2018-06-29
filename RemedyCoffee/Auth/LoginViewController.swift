@@ -17,7 +17,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     var auth: Auth?
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
-    @IBOutlet weak var usersButton: UIButton!
     @IBOutlet weak var buyItemButton: UIButton!
     @IBOutlet weak var myPurchasesButton: UIButton!
     
@@ -25,7 +24,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         super.viewDidLoad()
         self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         self.scanButton.isHidden = true
-        self.usersButton.isHidden = true //TODO Not using this feature yet, not complete
         addBackground(atLocation: "coffee_cheers")
         
         self.auth = Auth.auth()
