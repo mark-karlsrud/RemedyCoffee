@@ -88,8 +88,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     }
     
     func checkIfAdmin(_ user: User) {
-        if user.isAdmin != nil {
-            scanButton.isHidden = false
+        if let isAdmin = user.isAdmin {
+            scanButton.isHidden = !isAdmin
         }
     }
     
