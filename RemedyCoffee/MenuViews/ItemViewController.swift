@@ -30,7 +30,7 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         
         if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: ItemViewController.supportedNetworks) {
             let button = PKPaymentButton(paymentButtonType: .buy, paymentButtonStyle: .black)
-            button.addTarget(self, action: #selector(applePayButtonPressed(_:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(applePayButtonTapped(sender:)), for: .touchUpInside)
             button.center = applePayView.convert(applePayView.center, from: applePayView.superview)
             button.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
             applePayView.addSubview(button)
@@ -60,7 +60,7 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func applePayButtonPressed(_ sender: Any) {
+    @objc private func applePayButtonTapped(sender: UIButton) {
         let request = PKPaymentRequest()
         request.merchantIdentifier = "merchant.com.remedycoffee.ios"
         request.supportedNetworks = ItemViewController.supportedNetworks
@@ -91,9 +91,16 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
             let json = try encoder.encode(purchase).toDict()
             let childUpdates = ["/purchases/\(purchaseCode)/": json,
                                 "/userPurchases/\(String(describing: purchase.purchaser.id!))/\(purchaseCode)/" : json]
-            self.ref.updateChildValues(childUpdates)
-            completion(PKPaymentAuthorizationStatus.success)
-            goToPurchaseView(purchase)
+            self.ref.updateChildValues(childUpdates) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    print(error)
+                    completion(PKPaymentAuthorizationStatus.failure)
+                } else {
+                    completion(PKPaymentAuthorizationStatus.success)
+                    self.goToPurchaseView(purchase)
+                }
+            }
         } catch let error {
             print(error)
             completion(PKPaymentAuthorizationStatus.failure)
