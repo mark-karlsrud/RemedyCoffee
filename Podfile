@@ -14,6 +14,7 @@ target 'RemedyCoffee' do
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Phone'
   pod 'Firebase/Storage'
+  pod "AFNetworking", "~> 2.0" #used by Worldpay
 
   target 'RemedyCoffeeTests' do
     inherit! :search_paths

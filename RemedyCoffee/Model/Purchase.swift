@@ -15,4 +15,5 @@ struct Purchase: Codable {
     var redeemed: Bool!
     var date: String
     var sharedTo: [String : User]
+    var token: Int32! //Worldpay token
 }

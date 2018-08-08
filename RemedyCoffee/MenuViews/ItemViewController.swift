@@ -11,6 +11,9 @@ import Firebase
 import FirebaseStorage
 import PassKit
 
+let MERCHANT_ID = "merchant.com.remedycoffee.ios"
+let CLIENT_KEY = "NEED TO GET THIS"
+
 class ItemViewController: UIViewController, PKPaymentAuthorizationViewControllerDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
@@ -28,12 +31,18 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         
         addBackground(atLocation: "wood_background")
         
-        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: ItemViewController.supportedNetworks) {
+        if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: ItemViewController.supportedNetworks) && Worldpay.sharedInstance().canMakePayments() {
             let button = PKPaymentButton(paymentButtonType: .buy, paymentButtonStyle: .black)
             button.addTarget(self, action: #selector(applePayButtonTapped(sender:)), for: .touchUpInside)
             button.center = applePayView.convert(applePayView.center, from: applePayView.superview)
             button.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
             applePayView.addSubview(button)
+            
+            //Load WorldPay
+            let wp: Worldpay = Worldpay.sharedInstance();
+            wp.clientKey = CLIENT_KEY; //TODO!
+            wp.reusable = true;
+            wp.validationType = WorldpayValidationTypeAdvanced;
         }
         
         self.ref = Database.database().reference()
@@ -61,48 +70,55 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
     }
     
     @objc private func applePayButtonTapped(sender: UIButton) {
-        let request = PKPaymentRequest()
-        request.merchantIdentifier = "merchant.com.remedycoffee.ios"
-        request.supportedNetworks = ItemViewController.supportedNetworks
-        request.merchantCapabilities = PKMerchantCapability.capability3DS
-        request.countryCode = "US"
-        request.currencyCode = "USD"
-        let price : NSDecimalNumber = NSDecimalNumber(string: item?.item.value.description)
-        request.paymentSummaryItems = [            
-            PKPaymentSummaryItem(label: (item?.item.description)!, amount: price),
-            PKPaymentSummaryItem(label: "Remedy Coffee", amount: price)
-        ]
-        
-        let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
-        applePayController?.delegate = self
-        self.present(applePayController!, animated: true, completion: nil)
+        if let request = Worldpay.sharedInstance().createPaymentRequest(withMerchantIdentifier: MERCHANT_ID) {
+            request.supportedNetworks = ItemViewController.supportedNetworks
+            request.merchantCapabilities = PKMerchantCapability.capability3DS
+            request.countryCode = "US"
+            request.currencyCode = "USD"
+            let price : NSDecimalNumber = NSDecimalNumber(string: item?.item.value.description)
+            request.paymentSummaryItems = [
+                PKPaymentSummaryItem(label: (item?.item.description)!, amount: price),
+                PKPaymentSummaryItem(label: "Remedy Coffee", amount: price)
+            ]
+            
+            let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+            applePayController?.delegate = self
+            self.present(applePayController!, animated: true, completion: nil)
+        }
     }
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: @escaping ((PKPaymentAuthorizationStatus) -> Void)) {
-        let fromUser = User(name: "?", phone: nil, isAdmin: false)
-        let purchaser = UserWrapper(id: Auth.auth().currentUser!.uid, user: fromUser)
-        let purchaseCode = UUID().uuidString
-        let redeemed = false
-        let date = Date().toDateAndTime()
-        let purchase = Purchase(purchaser: purchaser, item: item, code: purchaseCode, redeemed: redeemed, date: date, sharedTo: [Auth.auth().currentUser!.uid: fromUser])
         
-        let encoder = JSONEncoder()
-        do {
-            let json = try encoder.encode(purchase).toDict()
-            let childUpdates = ["/purchases/\(purchaseCode)/": json,
-                                "/userPurchases/\(String(describing: purchase.purchaser.id!))/\(purchaseCode)/" : json]
-            self.ref.updateChildValues(childUpdates) {
-                (error:Error?, ref:DatabaseReference) in
-                if let error = error {
-                    print(error)
-                    completion(PKPaymentAuthorizationStatus.failure)
-                } else {
-                    completion(PKPaymentAuthorizationStatus.success)
-                    self.goToPurchaseView(purchase)
+        Worldpay.sharedInstance().createToken(withPaymentData: payment.token.paymentData, success: { (code, responseDict) in
+            //Handle the Worldpay token here. At this point you should connect to your own server and complete the purchase from there.
+            //Let's just add the token to our db
+            let fromUser = User(name: "?", phone: nil, isAdmin: false)
+            let purchaser = UserWrapper(id: Auth.auth().currentUser!.uid, user: fromUser)
+            let purchaseCode = UUID().uuidString
+            let redeemed = false
+            let date = Date().toDateAndTime()
+            let purchase = Purchase(purchaser: purchaser, item: self.item, code: purchaseCode, redeemed: redeemed, date: date, sharedTo: [Auth.auth().currentUser!.uid: fromUser], token: code)
+            
+            let encoder = JSONEncoder()
+            do {
+                let json = try encoder.encode(purchase).toDict()
+                let childUpdates = ["/purchases/\(purchaseCode)/": json,
+                                    "/userPurchases/\(String(describing: purchase.purchaser.id!))/\(purchaseCode)/" : json]
+                self.ref.updateChildValues(childUpdates) { (error:Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        print(error)
+                        completion(PKPaymentAuthorizationStatus.failure)
+                    } else {
+                        completion(PKPaymentAuthorizationStatus.success)
+                        self.goToPurchaseView(purchase)
+                    }
                 }
+            } catch let error {
+                print(error)
+                completion(PKPaymentAuthorizationStatus.failure)
             }
-        } catch let error {
-            print(error)
+        }) { (responseDict, errors) in
+            print(errors)
             completion(PKPaymentAuthorizationStatus.failure)
         }
     }
