@@ -13,5 +13,5 @@ struct Item: Codable {
     var size: String?
     var value: Double!
     var imageName: String?
-    var index: Int32? = 0
+    var index: Int32?
 }

@@ -52,6 +52,8 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         }
         if let size = item?.item.size {
             sizeLabel.text = "Size: \(size)"
+        } else {
+            sizeLabel.text = ""
         }
         
         if let imageName = item?.item.imageName {
