@@ -48,7 +48,7 @@ class ItemViewController: UIViewController, PKPaymentAuthorizationViewController
         self.ref = Database.database().reference()
         descriptionLabel.text = item?.item.description
         if let price = item?.item.value {
-            valueLabel.text = "$\(price)"
+            valueLabel.text = price.toCurrency()
         }
         if let size = item?.item.size {
             sizeLabel.text = "Size: \(size)"

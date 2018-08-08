@@ -46,11 +46,11 @@ class MenuTableController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate item for the data source layout.
         let item = items[indexPath.row]
         
         cell.descriptionLabel.text = item.item.description
-        cell.priceLabel.text = "$\(item.item.value!)"
+        cell.priceLabel.text = item.item.value.toCurrency()
         
         return cell
     }
@@ -69,6 +69,10 @@ class MenuTableController: UITableViewController {
                     print(error)
                 }
             }
+            //sort items
+            self.items.sort(by: { (item1, item2) -> Bool in
+                return item1.item.index! < item2.item.index!
+            })
             self.tableView.reloadData()
             self.tableView.activityStopAnimating()
         })

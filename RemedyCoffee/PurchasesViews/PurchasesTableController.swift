@@ -77,6 +77,10 @@ class PurchasesTableController: UITableViewController {
                     print(error)
                 }
             }
+            //sort purchases by date
+            self.purchases.sort(by: { (purchase1, purchase2) -> Bool in
+                return purchase1.date.toDate() > purchase2.date.toDate()
+            })
             self.tableView.reloadData()
             self.view.activityStopAnimating()
         })
