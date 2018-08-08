@@ -12,13 +12,20 @@ import FirebaseDatabaseUI
 
 class MenuTableController: UITableViewController {
     var ref: DatabaseReference!
-    var items = [ItemWrapper]()
+    var items = [ItemCategory: [ItemWrapper]]()
+    let SectionHeaderHeight: CGFloat = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.activityStartAnimating(activityColor: UIColor.white, backgroundColor: UIColor.black.withAlphaComponent(0.5))
         setBackground(atLocation: "coffee_beans.png")
         self.ref = Database.database().reference()
+        
+        self.items[.espresso] = [ItemWrapper]()
+        self.items[.drip] = [ItemWrapper]()
+        self.items[.coffeeFree] = [ItemWrapper]()
+        self.items[.food] = [ItemWrapper]()
+        
         loadItems()
     }
     
@@ -30,11 +37,52 @@ class MenuTableController: UITableViewController {
     //MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return ItemCategory.total.rawValue
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        // Using Swift's optional lookup we first check if there is a valid section of table.
+        // Then we check that for the section there is data that goes with.
+        if let tableSection = ItemCategory(rawValue: section), let data = items[tableSection] {
+            return data.count
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // If we wanted to always show a section header regardless of whether or not there were rows in it,
+        // then uncomment this line below:
+        //return SectionHeaderHeight
+        // First check if there is a valid section of table.
+        // Then we check that for the section there is more than 1 row.
+        if let tableSection = ItemCategory(rawValue: section), let data = items[tableSection], data.count > 0 {
+            return SectionHeaderHeight
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: SectionHeaderHeight))
+        view.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3529411765, blue: 0.1921568627, alpha: 1)
+        let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: SectionHeaderHeight))
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textColor = UIColor.black
+        if let tableSection = ItemCategory(rawValue: section) {
+            switch tableSection {
+                case .espresso:
+                    label.text = "Espresso Based"
+                case .drip:
+                    label.text = "Drip"
+                case .coffeeFree:
+                    label.text = "Coffee Free"
+                case .food:
+                    label.text = "Food"
+                default:
+                    label.text = ""
+                }
+        }
+        view.addSubview(label)
+        return view
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,11 +94,10 @@ class MenuTableController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
-        // Fetches the appropriate item for the data source layout.
-        let item = items[indexPath.row]
-        
-        cell.descriptionLabel.text = item.item.description
-        cell.priceLabel.text = item.item.value.toCurrency()
+        if let tableSection = ItemCategory(rawValue: indexPath.section), let item = items[tableSection]?[indexPath.row] {
+            cell.descriptionLabel.text = item.item.description
+            cell.priceLabel.text = item.item.value.toCurrency()
+        }
         
         return cell
     }
@@ -64,15 +111,18 @@ class MenuTableController: UITableViewController {
                 do {
                     let item = try childSnap.decode(Item.self)
                     let itemWrapper = ItemWrapper(id: childSnap.key, item: item)
-                    self.items += [itemWrapper]
+                    self.items[itemWrapper.item.category]?.append(itemWrapper)
                 } catch let error {
                     print(error)
                 }
             }
-            //sort items
-            self.items.sort(by: { (item1, item2) -> Bool in
-                return item1.item.index! < item2.item.index!
-            })
+            
+            //sort the items
+            for (category, _) in self.items {
+                self.items[category]?.sort(by: { (item1, item2) -> Bool in
+                    return item1.item.index! < item2.item.index!
+                })
+            }
             self.tableView.reloadData()
             self.tableView.activityStopAnimating()
         })
@@ -81,7 +131,7 @@ class MenuTableController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ItemViewController {
             let vc = segue.destination as? ItemViewController
-            vc?.item = items[(self.tableView.indexPathForSelectedRow?.row)!]
+            vc?.item = items[ItemCategory(rawValue: (self.tableView.indexPathForSelectedRow?.section)!)!]?[(self.tableView.indexPathForSelectedRow?.row)!]
         }
     }
 }

@@ -14,4 +14,9 @@ struct Item: Codable {
     var value: Double!
     var imageName: String?
     var index: Int32?
+    var category: ItemCategory!
+}
+
+enum ItemCategory: Int, Codable {
+    case espresso = 0, drip, coffeeFree, food, total
 }
